@@ -1,0 +1,981 @@
+@prefix : <http://www.semanticweb.org/MOAFDITO#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/MOAFDITO#> .
+
+<http://www.semanticweb.org/MOAFDITO> rdf:type owl:Ontology ;
+                                       <http://purl.org/dc/terms/contributor> "Bige Tuncer" ;
+                                       <http://purl.org/dc/terms/creator> "Arghavan Akbarieh" ;
+                                       <http://purl.org/dc/terms/description> """The MOAF-DiTO ontology is Wip.
+It provides a semantic model for representing manufacturing operations in printed circuit board (PCB) production. The ontology captures work orders, operation executions, material requirements, machines, departments, personnel 
+roles, and quality tests.
+
+MOAF-DiTO is designed to support monitoring, analysis, and decision-making on the operational  floor with an outlook for reporting. It enables consistent representation of routing structures, operational sequences, material consumption, and test outcomes, allowing traceability of products and resources throughout the manufacturing process.
+
+The ontology is intended to serve as a semantic backbone for knowledge graphs, AI and digital twin applications. It is extensible by design and aligns with open manufacturing and Industry 5.0 principles."""@en ;
+                                       <http://purl.org/dc/terms/license> "http://creativecommons.org/licenses/by/4.0/" ;
+                                       <http://purl.org/dc/terms/title> "MOAFDITO" ;
+                                       rdfs:label "MOAF-DiT project" ;
+                                       owl:versionInfo 1.0 .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/descriptions
+<http://purl.org/dc/terms/descriptions> rdf:type owl:AnnotationProperty ;
+                                        rdfs:subPropertyOf rdfs:comment .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/MOAFDITO#adjacentTo
+:adjacentTo rdf:type owl:ObjectProperty ,
+                     owl:SymmetricProperty ;
+            rdfs:domain :DepartmentLocation ;
+            rdfs:range :DepartmentLocation ;
+            <http://purl.org/dc/terms/descriptions> "Spatial location description of departments on the floor's operational area" ;
+            rdfs:label "adjacent To" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#belongsToBoardFamily
+:belongsToBoardFamily rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :hasBoardType ;
+                      rdfs:domain :BoardType ;
+                      rdfs:range :BoardFamily ;
+                      rdfs:label "belongs To Board Family" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#belongsToDepartment
+:belongsToDepartment rdf:type owl:ObjectProperty ;
+                     rdfs:domain [ rdf:type owl:Class ;
+                                   owl:unionOf ( :Process
+                                                 :ProcessStep
+                                               )
+                                 ] ;
+                     rdfs:range :Department ;
+                     <http://purl.org/dc/terms/descriptions> "Each department has specific tasks that is disjoint from tasks of other departments" ;
+                     rdfs:label "belongs To Department" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#belongsToWorkOrder
+:belongsToWorkOrder rdf:type owl:ObjectProperty ;
+                    rdfs:domain :WIPEntity ;
+                    rdfs:range :WorkOrder ;
+                    <http://purl.org/dc/terms/descriptions> "This helps to identify which Wip entities belong to what work order" ;
+                    rdfs:label "belongs To work Order" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#executesRouteStep
+:executesRouteStep rdf:type owl:ObjectProperty ;
+                   rdfs:domain :ExecutionStep ;
+                   rdfs:range :RouteStep ;
+                   rdfs:label "executes Route Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#forWIPBoard
+:forWIPBoard rdf:type owl:ObjectProperty ;
+             rdfs:domain :ExecutionStep ;
+             rdfs:range :WIPEntity ;
+             rdfs:label "for WIP Board" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasBoardType
+:hasBoardType rdf:type owl:ObjectProperty ;
+              rdfs:domain :BoardFamily ;
+              rdfs:range :BoardType ;
+              rdfs:label "has Board Type" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasDepertment
+:hasDepertment rdf:type owl:ObjectProperty ;
+               owl:inverseOf :locatedOnOperationalArea ;
+               rdfs:domain :OperationalArea ;
+               rdfs:range :Department ;
+               <http://purl.org/dc/terms/descriptions> "Operationa Area (or Floor) may have one or more department. Each department has its own goal and set of processes." ;
+               rdfs:label "has Department" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasLocation
+:hasLocation rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :Department ;
+             rdfs:range :DepartmentLocation ;
+             rdfs:label "has Location" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasNextExecutionStep
+:hasNextExecutionStep rdf:type owl:ObjectProperty ;
+                      rdfs:domain :ExecutionStep ;
+                      rdfs:range :ExecutionStep ;
+                      <http://purl.org/dc/terms/descriptions> "ExecutionStep links a work-in-progress board to the route step it is currently executing, enabling real-time tracking and reasoning" ;
+                      rdfs:label "has Next Execution Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasNextRouteStep
+:hasNextRouteStep rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :hasPreviousRouteStep ;
+                  rdfs:domain :RouteStep ;
+                  rdfs:range :RouteStep ;
+                  <http://purl.org/dc/terms/descriptions> "This route step is followed by the next route step." ;
+                  rdfs:label "has Next Route Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasNextStep
+:hasNextStep rdf:type owl:ObjectProperty ;
+             owl:inverseOf :hasPreviousStep ;
+             rdfs:domain :ProcessStep ;
+             rdfs:range :ProcessStep ;
+             rdfs:label "has Next Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasOperator
+:hasOperator rdf:type owl:ObjectProperty ;
+             rdfs:domain :ManualMachines ;
+             rdfs:range :Role ;
+             rdfs:label "has Operator" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasPreviousRouteStep
+:hasPreviousRouteStep rdf:type owl:ObjectProperty ;
+                      rdfs:domain :RouteStep ;
+                      rdfs:range :RouteStep ;
+                      <http://purl.org/dc/terms/descriptions> "This route step comes after the previous route step" ;
+                      rdfs:label "has Previous Route Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasPreviousStep
+:hasPreviousStep rdf:type owl:ObjectProperty ;
+                 rdfs:domain :ProcessStep ;
+                 rdfs:range :ProcessStep ;
+                 rdfs:label "has Previous Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasProcess
+:hasProcess rdf:type owl:ObjectProperty ;
+            rdfs:domain :Department ;
+            rdfs:range :Process ;
+            rdfs:label "has Process" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasProcessStep
+:hasProcessStep rdf:type owl:ObjectProperty ;
+                rdfs:domain :Process ;
+                rdfs:range :ProcessStep ;
+                <http://purl.org/dc/terms/descriptions> "A general relationship for Process to be connected to a ProcessStep." ;
+                rdfs:comment "TAG:PROCESS" ;
+                rdfs:seeAlso "has Process Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasRole
+:hasRole rdf:type owl:ObjectProperty ;
+         rdfs:domain :Person ;
+         rdfs:range :Role ;
+         rdfs:label "has Role" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasRoute
+:hasRoute rdf:type owl:ObjectProperty ;
+          rdfs:domain :BoardType ;
+          rdfs:range :Route ;
+          rdfs:label "has Route" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasRouteStep
+:hasRouteStep rdf:type owl:ObjectProperty ;
+              owl:inverseOf :isRouteStepOf ;
+              rdfs:domain :Route ;
+              rdfs:range :RouteStep ;
+              <http://purl.org/dc/terms/descriptions> "A  route consists of several route steps" ;
+              rdfs:label "has Route Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasSameOperationalArea
+:hasSameOperationalArea rdf:type owl:ObjectProperty ,
+                                 owl:SymmetricProperty ,
+                                 owl:TransitiveProperty ,
+                                 owl:ReflexiveProperty ;
+                        rdfs:domain :DepartmentLocation ;
+                        rdfs:range :DepartmentLocation ;
+                        rdfs:label "has Same Operational Area" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasStorey
+:hasStorey rdf:type owl:ObjectProperty ;
+           rdfs:domain :Factory ;
+           rdfs:range :OperationalArea ;
+           <http://purl.org/dc/terms/descriptions> "A Factory has operational areas, in which certain operations are carried out." ;
+           rdfs:comment "TAG:SPATIAL" ;
+           rdfs:label "has Operational Area" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasWorkOrderForBoardFamily
+:hasWorkOrderForBoardFamily rdf:type owl:ObjectProperty ;
+                            rdfs:domain :WorkOrder ;
+                            rdfs:range :BoardFamily ;
+                            rdfs:label "has Work Order For Board Family" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasWorkOrderForBoardType
+:hasWorkOrderForBoardType rdf:type owl:ObjectProperty ;
+                          rdfs:domain :WorkOrder ;
+                          rdfs:range :BoardType ;
+                          rdfs:label "has Work Order For Board Type" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#isRouteStepOf
+:isRouteStepOf rdf:type owl:ObjectProperty ;
+               rdfs:domain :RouteStep ;
+               rdfs:range :Route ;
+               rdfs:label "is Route Step Of" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#locatedOnOperationalArea
+:locatedOnOperationalArea rdf:type owl:ObjectProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain :DepartmentLocation ;
+                          rdfs:range :OperationalArea ;
+                          rdfs:label "located On Operational Area" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#performedByRole
+:performedByRole rdf:type owl:ObjectProperty ;
+                 rdfs:domain :ProcessStep ;
+                 rdfs:range :Role ;
+                 rdfs:label "performed By Role" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#processedInDepartment
+:processedInDepartment rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BoardType ;
+                       rdfs:range :Department ;
+                       rdfs:comment "a bit explanatin: If a BoardType hasRoute some Route, and that Route routeHasStep some Step, and that Step inDepartment some Department, then the BoardType processedInDepartment that Department." ;
+                       rdfs:label "processed In Department" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#refersToProcessStep
+:refersToProcessStep rdf:type owl:ObjectProperty ;
+                     rdfs:domain :RouteStep ;
+                     rdfs:range :ProcessStep ;
+                     <http://purl.org/dc/terms/descriptions> "This propert helps to explain that at this position in the route, the board enters and completes this process" ;
+                     rdfs:label "refers To Process Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#requiresMachine
+:requiresMachine rdf:type owl:ObjectProperty ;
+                 rdfs:domain :ProcessStep ;
+                 rdfs:range :Machine ;
+                 rdfs:label "requires Machine" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#requiresMaterial
+:requiresMaterial rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( :BoardType
+                                              :ProcessStep
+                                            )
+                              ] ;
+                  rdfs:range :MaterialType ;
+                  rdfs:label "requires Material" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#requiresResources
+:requiresResources rdf:type owl:ObjectProperty ;
+                   rdfs:domain :ProcessStep ;
+                   rdfs:range :Resources ;
+                   rdfs:label "requires Resources" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#requiresRole
+:requiresRole rdf:type owl:ObjectProperty ;
+              rdfs:domain :ProcessStep ;
+              rdfs:range :Role ;
+              <http://purl.org/dc/terms/descriptions> "Each Department has several roles." ;
+              rdfs:label "Requires Role" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/MOAFDITO#belongsToWorkOrderID
+:belongsToWorkOrderID rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :BoardType ;
+                      rdfs:range xsd:string ;
+                      <http://purl.org/dc/terms/descriptions> "Literal reference to a work order identifier." .
+
+
+###  http://www.semanticweb.org/MOAFDITO#endedAt
+:endedAt rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:dateTime ;
+         rdfs:label "ended At" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasBoardID
+:hasBoardID rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :WIPEntity ;
+            rdfs:range xsd:string ;
+            rdfs:label "has Board ID" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasDepartmentCode
+:hasDepartmentCode rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :WorkOrder ;
+                   rdfs:range xsd:string ;
+                   <http://purl.org/dc/terms/descriptions> "Each orderID has a departmentCode (Source: EDA by Miren)" ;
+                   rdfs:label "has Department Code" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasEquipmentID
+:hasEquipmentID rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain :Resources ;
+                rdfs:range xsd:string ;
+                rdfs:label "has Equipment ID" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasLabelID
+:hasLabelID rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :WIPEntity ;
+            rdfs:range xsd:string ;
+            <http://purl.org/dc/terms/descriptions> "" ;
+            rdfs:label "has Lable ID" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasMaterialID
+:hasMaterialID rdf:type owl:DatatypeProperty ;
+               rdfs:domain :MaterialType ;
+               rdfs:range xsd:string ;
+               <http://purl.org/dc/terms/descriptions> "Each type of material has an ID (most likely already recorded in the ERP system)" ;
+               rdfs:label "has Material ID" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasMaterialQuantityPerBoard
+:hasMaterialQuantityPerBoard rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :BoardType ;
+                             rdfs:range xsd:integer ;
+                             <http://purl.org/dc/terms/descriptions> "Each board type requires specific material with a certain quantity. This property helps calculate how much material is needed for each board and subsequqntly each work order." ;
+                             rdfs:label "has Material Quantity Per Board" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasName
+:hasName rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Department ;
+         rdfs:range xsd:string ;
+         rdfs:label "has Name" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasOperationCode
+:hasOperationCode rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "has Operation Code" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasOperationDescription
+:hasOperationDescription rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :ProcessStep ;
+                         rdfs:range xsd:string ;
+                         <http://purl.org/dc/terms/descriptions> "Each task have a description that can be recorded" ;
+                         rdfs:label "has Operation Description" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasOperationSequenceNumber
+:hasOperationSequenceNumber rdf:type owl:DatatypeProperty ;
+                            rdfs:range xsd:integer ;
+                            rdfs:label "has Operation Sequence Number" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasPersonnelID
+:hasPersonnelID rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain :Person ;
+                rdfs:range xsd:string ;
+                <http://purl.org/dc/terms/descriptions> "Each employee has an ID" ;
+                rdfs:label "has Personnel ID" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasQRcode
+:hasQRcode rdf:type owl:DatatypeProperty ;
+           rdfs:domain :BoardType ;
+           rdfs:range xsd:anyURI ;
+           rdfs:label "has QR Code" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasWorkOrderDescription
+:hasWorkOrderDescription rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :WorkOrder ;
+                         rdfs:range xsd:string ;
+                         <http://purl.org/dc/terms/descriptions> "This is a descritptin of the order that client has made" ;
+                         rdfs:label "has Work Order Description" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasWorkOrderID
+:hasWorkOrderID rdf:type owl:DatatypeProperty ;
+                rdfs:domain :WorkOrder ;
+                rdfs:range xsd:string ;
+                <http://purl.org/dc/terms/descriptions> "Each Board belongs to a specific Work Order (and batch)" ;
+                rdfs:label "has Work order ID" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#hasWorkOrderQuantity
+:hasWorkOrderQuantity rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :WorkOrder ;
+                      rdfs:range xsd:int ;
+                      <http://purl.org/dc/terms/descriptions> "Each work order has a quanity of the board type requested by client" ;
+                      rdfs:label "has Work Order Quantity" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#startedAt
+:startedAt rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:dateTime ;
+           rdfs:label "started At" .
+
+
+###  http://www.w3.org/2002/07/owl#topDataProperty
+owl:topDataProperty rdfs:domain :WIPEntity ;
+                    rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/MOAFDITO#Actor
+:Actor rdf:type owl:Class ;
+       <http://purl.org/dc/terms/descriptions> "A superclass for personnel-related concepts" ;
+       rdfs:label "Actor" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#AoI_line_operator
+:AoI_line_operator rdf:type owl:Class ;
+                   rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#AoI_personnel
+:AoI_personnel rdf:type owl:Class ;
+               rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Assembly_department_supervisor
+:Assembly_department_supervisor rdf:type owl:Class ;
+                                rdfs:subClassOf :Supervisor ;
+                                rdfs:comment "The team leader responsible for organizing tasks before production, preparing barcodes, and distributing the work." .
+
+
+###  http://www.semanticweb.org/MOAFDITO#AutomaticMachines
+:AutomaticMachines rdf:type owl:Class ;
+                   rdfs:subClassOf :Machine .
+
+
+###  http://www.semanticweb.org/MOAFDITO#BarcodeScanner
+:BarcodeScanner rdf:type owl:Class ;
+                rdfs:subClassOf :ComputerisedSystems .
+
+
+###  http://www.semanticweb.org/MOAFDITO#BoardFamily
+:BoardFamily rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasBoardType ;
+                               owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                               owl:onClass :BoardType
+                             ] ;
+             <http://purl.org/dc/terms/descriptions> "This class shows that an order can come for multiple board types" ;
+             rdfs:label "Board Family" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#BoardMaterialRequirement
+:BoardMaterialRequirement rdf:type owl:Class ;
+                          rdfs:comment "Maybe the name can be changed. But in essence, we need a class to say for which board type we need what materials." .
+
+
+###  http://www.semanticweb.org/MOAFDITO#BoardType
+:BoardType rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :requiresMaterial ;
+                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :MaterialType
+                           ] ;
+           rdfs:comment "Should we create 37 boards here?Update: according to the new report, there are 65 unique board types" ;
+           rdfs:label "Board Type" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Button_test
+:Button_test rdf:type owl:Class ;
+             rdfs:subClassOf :Test .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Camera
+:Camera rdf:type owl:Class ;
+        rdfs:subClassOf :AutomaticMachines ;
+        rdfs:comment "The system that performs visual quality control using a camera." .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Card
+:Card rdf:type owl:Class ;
+      rdfs:subClassOf :PortableFurniture ;
+      rdfs:comment "AKA Wheeled transport cart" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Checklist
+:Checklist rdf:type owl:Class ;
+           rdfs:subClassOf :Tool .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Coating_operator
+:Coating_operator rdf:type owl:Class ;
+                  rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#ComputerisedSystems
+:ComputerisedSystems rdf:type owl:Class ;
+                     rdfs:subClassOf :Resources .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Department
+:Department rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/MOAFDITO#DepartmentLocation
+:DepartmentLocation rdf:type owl:Class ;
+                    rdfs:label "Department Location" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#EBSOMAT_120_lead_forming_machine
+:EBSOMAT_120_lead_forming_machine rdf:type owl:Class ;
+                                  rdfs:subClassOf :AutomaticMachines .
+
+
+###  http://www.semanticweb.org/MOAFDITO#EBSOMAT_300_lead_forming_machine
+:EBSOMAT_300_lead_forming_machine rdf:type owl:Class ;
+                                  rdfs:subClassOf :AutomaticMachines .
+
+
+###  http://www.semanticweb.org/MOAFDITO#EMM
+:EMM rdf:type owl:Class ;
+     rdfs:subClassOf :Test .
+
+
+###  http://www.semanticweb.org/MOAFDITO#EOL_Testing
+:EOL_Testing rdf:type owl:Class ;
+             rdfs:subClassOf :Test .
+
+
+###  http://www.semanticweb.org/MOAFDITO#ERPSystem
+:ERPSystem rdf:type owl:Class ;
+           rdfs:subClassOf :Software .
+
+
+###  http://www.semanticweb.org/MOAFDITO#ExecutionStep
+:ExecutionStep rdf:type owl:Class ;
+               rdfs:label "Execution Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#FCT_test
+:FCT_test rdf:type owl:Class ;
+          rdfs:subClassOf :Test .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Factory
+:Factory rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Fixed-location_storage_shelve
+:Fixed-location_storage_shelve rdf:type owl:Class ;
+                               rdfs:subClassOf :StableFurniture .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Furniture
+:Furniture rdf:type owl:Class ;
+           rdfs:subClassOf :Resources .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Hand_soldering_tool
+:Hand_soldering_tool rdf:type owl:Class ;
+                     rdfs:subClassOf :Tool .
+
+
+###  http://www.semanticweb.org/MOAFDITO#ICT_test
+:ICT_test rdf:type owl:Class ;
+          rdfs:subClassOf :Test .
+
+
+###  http://www.semanticweb.org/MOAFDITO#InterimStorageBox
+:InterimStorageBox rdf:type owl:Class ;
+                   rdfs:subClassOf :PortableFurniture .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Internal_quality_control
+:Internal_quality_control rdf:type owl:Class ;
+                          rdfs:subClassOf :Test .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Kinked_Resistor_Forming_Machine
+:Kinked_Resistor_Forming_Machine rdf:type owl:Class ;
+                                 rdfs:subClassOf :ManualMachines .
+
+
+###  http://www.semanticweb.org/MOAFDITO#LabelPrinter
+:LabelPrinter rdf:type owl:Class ;
+              rdfs:subClassOf :ComputerisedSystems .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Lead_Cutting_Machine
+:Lead_Cutting_Machine rdf:type owl:Class ;
+                      rdfs:subClassOf :AutomaticMachines .
+
+
+###  http://www.semanticweb.org/MOAFDITO#LineWorker
+:LineWorker rdf:type owl:Class ;
+            rdfs:subClassOf :Worker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Line_performance_system_coating
+:Line_performance_system_coating rdf:type owl:Class ;
+                                 rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Machine
+:Machine rdf:type owl:Class ;
+         rdfs:subClassOf :Resources .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Machine_HMI_control_software
+:Machine_HMI_control_software rdf:type owl:Class ;
+                              rdfs:subClassOf :ComputerisedSystems .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Magazine
+:Magazine rdf:type owl:Class ;
+          rdfs:subClassOf :PortableFurniture .
+
+
+###  http://www.semanticweb.org/MOAFDITO#ManualMachines
+:ManualMachines rdf:type owl:Class ;
+                rdfs:subClassOf :Machine .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Manual_Vertical_Resistor_Machine
+:Manual_Vertical_Resistor_Machine rdf:type owl:Class ;
+                                  rdfs:subClassOf :ManualMachines .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Manual_soldering_department_operator
+:Manual_soldering_department_operator rdf:type owl:Class ;
+                                      rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Manual_soldering_department_technician
+:Manual_soldering_department_technician rdf:type owl:Class ;
+                                        rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#MaskingPallet
+:MaskingPallet rdf:type owl:Class ;
+               rdfs:subClassOf :PortableFurniture .
+
+
+###  http://www.semanticweb.org/MOAFDITO#MaterialHandler
+:MaterialHandler rdf:type owl:Class ;
+                 rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#MaterialType
+:MaterialType rdf:type owl:Class ;
+              rdfs:label "Material Type" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Material_Stripping_Machine
+:Material_Stripping_Machine rdf:type owl:Class ;
+                            rdfs:subClassOf :AutomaticMachines .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Material_preparation_personnel
+:Material_preparation_personnel rdf:type owl:Class ;
+                                rdfs:subClassOf :LineWorker ;
+                                rdfs:comment "Personnel who checks the materials required for assembly and delivers them to the line workers." .
+
+
+###  http://www.semanticweb.org/MOAFDITO#OLAMEF_leg_spreading_machine
+:OLAMEF_leg_spreading_machine rdf:type owl:Class ;
+                              rdfs:subClassOf :ManualMachines .
+
+
+###  http://www.semanticweb.org/MOAFDITO#OperationalArea
+:OperationalArea rdf:type owl:Class ;
+                 <http://purl.org/dc/terms/descriptions> "Operational area or the floor" ;
+                 rdfs:comment "equaivalent to BOT:storey" ;
+                 rdfs:label "Operational Area" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Operator
+:Operator rdf:type owl:Class ;
+          rdfs:subClassOf :LineWorker ;
+          rdfs:comment "Personnel who operate manual machines and perform resistor shaping processes." .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Packaging_personnel
+:Packaging_personnel rdf:type owl:Class ;
+                     rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf :Actor .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Planning_department_personnel
+:Planning_department_personnel rdf:type owl:Class ;
+                               rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#PortableFurniture
+:PortableFurniture rdf:type owl:Class ;
+                   rdfs:subClassOf :Furniture .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Process
+:Process rdf:type owl:Class ;
+         <http://purl.org/dc/terms/descriptions> "department-level workflow" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#ProcessStep
+:ProcessStep rdf:type owl:Class ;
+             rdfs:label "Process Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Product_quality_operator
+:Product_quality_operator rdf:type owl:Class ;
+                          rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Resources
+:Resources rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Responsible_technician
+:Responsible_technician rdf:type owl:Class ;
+                        rdfs:subClassOf :LineWorker ;
+                        rdfs:comment "The technical personnel who delivers barcode labels to the First Line Worker." .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Role
+:Role rdf:type owl:Class ;
+      rdfs:subClassOf :Actor .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Route
+:Route rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/MOAFDITO#RouteStep
+:RouteStep rdf:type owl:Class ;
+           rdfs:label "Route Step" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Software
+:Software rdf:type owl:Class ;
+          rdfs:subClassOf :Resources .
+
+
+###  http://www.semanticweb.org/MOAFDITO#StableFurniture
+:StableFurniture rdf:type owl:Class ;
+                 rdfs:subClassOf :Furniture .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Supervisor
+:Supervisor rdf:type owl:Class ;
+            rdfs:subClassOf :Role ;
+            rdfs:comment "People who manage people and processes" ;
+            rdfs:label "Supervisor" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Table
+:Table rdf:type owl:Class ;
+       rdfs:subClassOf :StableFurniture .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Talblet
+:Talblet rdf:type owl:Class ;
+         rdfs:subClassOf :ComputerisedSystems .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Test
+:Test rdf:type owl:Class ;
+      <http://purl.org/dc/terms/descriptions> "Each board needs to go through one or more tests to certify its health before it is sent to client" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Testing
+:Testing rdf:type owl:Class ;
+         rdfs:subClassOf :Test .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Tool
+:Tool rdf:type owl:Class ;
+      rdfs:subClassOf :Resources ;
+      rdfs:comment "Maybe call them tools" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#ToolCaddie
+:ToolCaddie rdf:type owl:Class ;
+            rdfs:subClassOf :Tool .
+
+
+###  http://www.semanticweb.org/MOAFDITO#UV_operator
+:UV_operator rdf:type owl:Class ;
+             rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#WIPEntity
+:WIPEntity rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Wave_Soldering_Machine
+:Wave_Soldering_Machine rdf:type owl:Class ;
+                        rdfs:subClassOf :AutomaticMachines .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Wave_soldering_department_operator
+:Wave_soldering_department_operator rdf:type owl:Class ;
+                                    rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Wave_soldering_entry_personnel
+:Wave_soldering_entry_personnel rdf:type owl:Class ;
+                                rdfs:subClassOf :LineWorker ;
+                                rdfs:comment "The person who sets up the machine and places the boards into the masking pallet." .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Wave_soldering_exit_personnel
+:Wave_soldering_exit_personnel rdf:type owl:Class ;
+                               rdfs:subClassOf :LineWorker ;
+                               rdfs:comment "Aybar has Inspector entity. should this person be inspector or not?" ,
+                                            "The personnel who visually inspects the boards exiting the soldering machine and intervenes if necessary." .
+
+
+###  http://www.semanticweb.org/MOAFDITO#WorkOrder
+:WorkOrder rdf:type owl:Class ;
+           <http://purl.org/dc/terms/descriptions> "Each work order signifies the board type(s) ordered by the client" ;
+           rdfs:label "Work Order" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Worker
+:Worker rdf:type owl:Class ;
+        rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Workstation
+:Workstation rdf:type owl:Class ;
+             rdfs:subClassOf :ComputerisedSystems ;
+             rdfs:comment "AKA Computer" .
+
+
+###  http://www.semanticweb.org/MOAFDITO#repair_personnel
+:repair_personnel rdf:type owl:Class ;
+                  rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#1st_line_worker_assembly
+<http://www.semanticweb.org/MOAFDITO#1st_line_worker_assembly> rdf:type owl:Class ;
+                                                               rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#2nd_line_worker_assembly
+<http://www.semanticweb.org/MOAFDITO#2nd_line_worker_assembly> rdf:type owl:Class ;
+                                                               rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#3rd_line_worker_assembly
+<http://www.semanticweb.org/MOAFDITO#3rd_line_worker_assembly> rdf:type owl:Class ;
+                                                               rdfs:subClassOf :LineWorker .
+
+
+###  http://www.semanticweb.org/MOAFDITO#4th_line_worker_assembly
+<http://www.semanticweb.org/MOAFDITO#4th_line_worker_assembly> rdf:type owl:Class ;
+                                                               rdfs:subClassOf :LineWorker .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/MOAFDITO#AoIDept
+:AoIDept rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/MOAFDITO#AssemblyDept
+:AssemblyDept rdf:type owl:NamedIndividual ,
+                       :Department .
+
+
+###  http://www.semanticweb.org/MOAFDITO#CoatingDept
+:CoatingDept rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/MOAFDITO#MaterialPreparation
+:MaterialPreparation rdf:type owl:NamedIndividual ,
+                              :Department .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Packaging
+:Packaging rdf:type owl:NamedIndividual ,
+                    :Department .
+
+
+###  http://www.semanticweb.org/MOAFDITO#QualityAssuranceDept
+:QualityAssuranceDept rdf:type owl:NamedIndividual ,
+                               :Department .
+
+
+###  http://www.semanticweb.org/MOAFDITO#ReceivingDept
+:ReceivingDept rdf:type owl:NamedIndividual ,
+                        :Department .
+
+
+###  http://www.semanticweb.org/MOAFDITO#Shipping
+:Shipping rdf:type owl:NamedIndividual ,
+                   :Department .
+
+
+###  http://www.semanticweb.org/MOAFDITO#SolderingDept
+:SolderingDept rdf:type owl:NamedIndividual ,
+                        :Department .
+
+
+###  http://www.semanticweb.org/MOAFDITO#TestingDept
+:TestingDept rdf:type owl:NamedIndividual ,
+                      :Department .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

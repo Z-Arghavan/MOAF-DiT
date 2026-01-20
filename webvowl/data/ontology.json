@@ -1,0 +1,2933 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2002/07/owl", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://www.semanticweb.org/MOAFDITO" ],
+    "title" : {
+      "undefined" : "MOAFDITO"
+    },
+    "iri" : "http://www.semanticweb.org/MOAFDITO",
+    "version" : "1.0",
+    "author" : [ "Arghavan Akbarieh" ],
+    "description" : {
+      "en" : "The MOAF-DiTO ontology is Wip.\nIt provides a semantic model for representing manufacturing operations in printed circuit board (PCB) production. The ontology captures work orders, operation executions, material requirements, machines, departments, personnel \nroles, and quality tests.\n\nMOAF-DiTO is designed to support monitoring, analysis, and decision-making on the operational  floor with an outlook for reporting. It enables consistent representation of routing structures, operational sequences, material consumption, and test outcomes, allowing traceability of products and resources throughout the manufacturing process.\n\nThe ontology is intended to serve as a semantic backbone for knowledge graphs, AI and digital twin applications. It is extensible by design and aligns with open manufacturing and Industry 5.0 principles."
+    },
+    "labels" : {
+      "undefined" : "MOAF-DiT project"
+    },
+    "other" : {
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "http://creativecommons.org/licenses/by/4.0/",
+        "type" : "label"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Arghavan Akbarieh",
+        "type" : "label"
+      } ],
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "Bige Tuncer",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "1.0",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "undefined",
+        "value" : "MOAFDITO",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "owl:Class"
+  }, {
+    "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "43",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "47",
+    "type" : "owl:Class"
+  }, {
+    "id" : "48",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "46",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "52",
+    "type" : "owl:Class"
+  }, {
+    "id" : "55",
+    "type" : "owl:Class"
+  }, {
+    "id" : "56",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "57",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:Class"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "68",
+    "type" : "owl:Class"
+  }, {
+    "id" : "76",
+    "type" : "owl:Class"
+  }, {
+    "id" : "78",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  }, {
+    "id" : "62",
+    "type" : "owl:Class"
+  }, {
+    "id" : "79",
+    "type" : "owl:Class"
+  }, {
+    "id" : "84",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "86",
+    "type" : "owl:Class"
+  }, {
+    "id" : "87",
+    "type" : "owl:Class"
+  }, {
+    "id" : "89",
+    "type" : "owl:Class"
+  }, {
+    "id" : "90",
+    "type" : "owl:Class"
+  }, {
+    "id" : "93",
+    "type" : "owl:Class"
+  }, {
+    "id" : "63",
+    "type" : "owl:Class"
+  }, {
+    "id" : "73",
+    "type" : "owl:Class"
+  }, {
+    "id" : "94",
+    "type" : "owl:Class"
+  }, {
+    "id" : "97",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "99",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "104",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "59",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "67",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "96",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "51",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "116",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "115",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "103",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "119",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "120",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "65",
+    "type" : "owl:Class"
+  }, {
+    "id" : "121",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "122",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "71",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "129",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "124",
+    "type" : "owl:Class"
+  }, {
+    "id" : "39",
+    "type" : "owl:Class"
+  }, {
+    "id" : "143",
+    "type" : "owl:Class"
+  }, {
+    "id" : "145",
+    "type" : "owl:Class"
+  }, {
+    "id" : "69",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "88",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "144",
+    "type" : "owl:Class"
+  }, {
+    "id" : "101",
+    "type" : "owl:Class"
+  }, {
+    "id" : "142",
+    "type" : "owl:Class"
+  }, {
+    "id" : "85",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "132",
+    "type" : "owl:Class"
+  }, {
+    "id" : "128",
+    "type" : "owl:Class"
+  }, {
+    "id" : "139",
+    "type" : "owl:Class"
+  }, {
+    "id" : "77",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "161",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "168",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "163",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "72",
+    "type" : "owl:Class"
+  }, {
+    "id" : "184",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "131",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "20",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "135",
+    "type" : "owl:Class"
+  }, {
+    "id" : "75",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "137",
+    "type" : "owl:Class"
+  }, {
+    "id" : "61",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "138",
+    "type" : "owl:Class"
+  }, {
+    "id" : "164",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "165",
+    "type" : "owl:Class"
+  }, {
+    "id" : "92",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "211",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "166",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "133",
+    "type" : "owl:Class"
+  }, {
+    "id" : "134",
+    "type" : "owl:Class"
+  }, {
+    "id" : "136",
+    "type" : "owl:Class"
+  }, {
+    "id" : "70",
+    "type" : "owl:Class"
+  }, {
+    "id" : "141",
+    "type" : "owl:Class"
+  }, {
+    "id" : "140",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#BoardMaterialRequirement",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "BoardMaterialRequirement"
+    },
+    "comment" : {
+      "undefined" : "Maybe the name can be changed. But in essence, we need a class to say for which board type we need what materials."
+    },
+    "id" : "2"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#AutomaticMachines",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AutomaticMachines"
+    },
+    "subClasses" : [ "5", "6", "7", "8", "9", "10" ],
+    "id" : "3",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Tool",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Tool"
+    },
+    "subClasses" : [ "13", "14", "15" ],
+    "comment" : {
+      "undefined" : "Maybe call them tools"
+    },
+    "id" : "11",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#BarcodeScanner",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "BarcodeScanner"
+    },
+    "id" : "16",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#ComputerisedSystems",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ComputerisedSystems"
+    },
+    "subClasses" : [ "16", "25", "26", "27", "28" ],
+    "id" : "17",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Process",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "department-level workflow",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Process"
+    },
+    "id" : "34"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Packaging_personnel",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Packaging_personnel"
+    },
+    "id" : "38",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Machine_HMI_control_software",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Machine_HMI_control_software"
+    },
+    "id" : "25",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#OperationalArea",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Operational area or the floor",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "OperationalArea",
+      "undefined" : "Operational Area"
+    },
+    "comment" : {
+      "undefined" : "equaivalent to BOT:storey"
+    },
+    "id" : "43"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Machine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Machine"
+    },
+    "subClasses" : [ "44", "3" ],
+    "id" : "4",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#BoardFamily",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "This class shows that an order can come for multiple board types",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BoardFamily",
+      "undefined" : "Board Family"
+    },
+    "id" : "47"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Manual_Vertical_Resistor_Machine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Manual_Vertical_Resistor_Machine"
+    },
+    "id" : "48",
+    "superClasses" : [ "44" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#BoardType",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "BoardType",
+      "undefined" : "Board Type"
+    },
+    "comment" : {
+      "undefined" : "Should we create 37 boards here?Update: according to the new report, there are 65 unique board types"
+    },
+    "id" : "31"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Route",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Route"
+    },
+    "id" : "46"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Talblet",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Talblet"
+    },
+    "id" : "28",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#EBSOMAT_120_lead_forming_machine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EBSOMAT_120_lead_forming_machine"
+    },
+    "id" : "5",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#4th_line_worker_assembly",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "4th_line_worker_assembly"
+    },
+    "id" : "52",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Line_performance_system_coating",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Line_performance_system_coating"
+    },
+    "id" : "55",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#MaterialType",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MaterialType",
+      "undefined" : "Material Type"
+    },
+    "id" : "56"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Department",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Department"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/MOAFDITO#QualityAssuranceDept",
+      "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+      "labels" : {
+        "IRI-based" : "QualityAssuranceDept"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/MOAFDITO#SolderingDept",
+      "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+      "labels" : {
+        "IRI-based" : "SolderingDept"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/MOAFDITO#MaterialPreparation",
+      "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+      "labels" : {
+        "IRI-based" : "MaterialPreparation"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/MOAFDITO#Shipping",
+      "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+      "labels" : {
+        "IRI-based" : "Shipping"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/MOAFDITO#TestingDept",
+      "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+      "labels" : {
+        "IRI-based" : "TestingDept"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/MOAFDITO#AssemblyDept",
+      "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+      "labels" : {
+        "IRI-based" : "AssemblyDept"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/MOAFDITO#Packaging",
+      "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+      "labels" : {
+        "IRI-based" : "Packaging"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/MOAFDITO#ReceivingDept",
+      "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+      "labels" : {
+        "IRI-based" : "ReceivingDept"
+      }
+    } ],
+    "id" : "33"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Wave_soldering_exit_personnel",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Wave_soldering_exit_personnel"
+    },
+    "comment" : {
+      "undefined" : "Aybar has Inspector entity. should this person be inspector or not?"
+    },
+    "id" : "57",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#ManualMachines",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ManualMachines"
+    },
+    "subClasses" : [ "62", "48", "63" ],
+    "id" : "44",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#RouteStep",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RouteStep",
+      "undefined" : "Route Step"
+    },
+    "id" : "41"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#PortableFurniture",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PortableFurniture"
+    },
+    "subClasses" : [ "70", "71", "72", "73" ],
+    "id" : "68",
+    "superClasses" : [ "69" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Assembly_department_supervisor",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Assembly_department_supervisor"
+    },
+    "comment" : {
+      "undefined" : "The team leader responsible for organizing tasks before production, preparing barcodes, and distributing the work."
+    },
+    "id" : "76",
+    "superClasses" : [ "77" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#MaterialHandler",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MaterialHandler"
+    },
+    "id" : "78",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#WorkOrder",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each work order signifies the board type(s) ordered by the client",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "WorkOrder",
+      "undefined" : "Work Order"
+    },
+    "id" : "30"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Kinked_Resistor_Forming_Machine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Kinked_Resistor_Forming_Machine"
+    },
+    "id" : "62",
+    "superClasses" : [ "44" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#ExecutionStep",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ExecutionStep",
+      "undefined" : "Execution Step"
+    },
+    "id" : "79"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Table",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Table"
+    },
+    "id" : "84",
+    "superClasses" : [ "85" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#ToolCaddie",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ToolCaddie"
+    },
+    "id" : "15",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Worker",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Worker"
+    },
+    "subClasses" : [ "39" ],
+    "id" : "86",
+    "superClasses" : [ "37" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Testing",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Testing"
+    },
+    "id" : "87",
+    "superClasses" : [ "88" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Software",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Software"
+    },
+    "subClasses" : [ "90" ],
+    "id" : "89",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#ERPSystem",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ERPSystem"
+    },
+    "id" : "90",
+    "superClasses" : [ "89" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Internal_quality_control",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Internal_quality_control"
+    },
+    "id" : "93",
+    "superClasses" : [ "88" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#OLAMEF_leg_spreading_machine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "OLAMEF_leg_spreading_machine"
+    },
+    "id" : "63",
+    "superClasses" : [ "44" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#InterimStorageBox",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "InterimStorageBox"
+    },
+    "id" : "73",
+    "superClasses" : [ "68" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Fixed-location_storage_shelve",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Fixed-location_storage_shelve"
+    },
+    "id" : "94",
+    "superClasses" : [ "85" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#EMM",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EMM"
+    },
+    "id" : "97",
+    "superClasses" : [ "88" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Lead_Cutting_Machine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Lead_Cutting_Machine"
+    },
+    "id" : "7",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Coating_operator",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Coating_operator"
+    },
+    "id" : "99",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#LabelPrinter",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LabelPrinter"
+    },
+    "id" : "27",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Manual_soldering_department_technician",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Manual_soldering_department_technician"
+    },
+    "id" : "104",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "22",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "59",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Workstation",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Workstation"
+    },
+    "comment" : {
+      "undefined" : "AKA Computer"
+    },
+    "id" : "26",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#int",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "67",
+    "label" : {
+      "IRI-based" : "int"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "96",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "51",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "116",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "115",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "103",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "119",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "120",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Factory",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Factory"
+    },
+    "id" : "65"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "121",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "122",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Magazine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Magazine"
+    },
+    "id" : "71",
+    "superClasses" : [ "68" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Role",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Role"
+    },
+    "subClasses" : [ "77", "86" ],
+    "id" : "37",
+    "superClasses" : [ "128" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Button_test",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Button_test"
+    },
+    "id" : "129",
+    "superClasses" : [ "88" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#WIPEntity",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "WIPEntity"
+    },
+    "id" : "19"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Wave_soldering_entry_personnel",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Wave_soldering_entry_personnel"
+    },
+    "comment" : {
+      "undefined" : "The person who sets up the machine and places the boards into the masking pallet."
+    },
+    "id" : "124",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#LineWorker",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LineWorker"
+    },
+    "subClasses" : [ "132", "38", "99", "52", "133", "134", "135", "136", "137", "138", "124", "55", "104", "57", "139", "140", "141", "142", "143", "78", "144", "145" ],
+    "id" : "39",
+    "superClasses" : [ "86" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#repair_personnel",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "repair_personnel"
+    },
+    "id" : "143",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#UV_operator",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "UV_operator"
+    },
+    "id" : "145",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Furniture",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Furniture"
+    },
+    "subClasses" : [ "68", "85" ],
+    "id" : "69",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Checklist",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Checklist"
+    },
+    "id" : "13",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Test",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each board needs to go through one or more tests to certify its health before it is sent to client",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Test"
+    },
+    "subClasses" : [ "129", "97", "164", "87", "165", "166", "93" ],
+    "id" : "88"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#DepartmentLocation",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DepartmentLocation",
+      "undefined" : "Department Location"
+    },
+    "id" : "1"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Operator",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Operator"
+    },
+    "comment" : {
+      "undefined" : "Personnel who operate manual machines and perform resistor shaping processes."
+    },
+    "id" : "144",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Person",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Person"
+    },
+    "id" : "101",
+    "superClasses" : [ "128" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Planning_department_personnel",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Planning_department_personnel"
+    },
+    "id" : "142",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#StableFurniture",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "StableFurniture"
+    },
+    "subClasses" : [ "94", "84" ],
+    "id" : "85",
+    "superClasses" : [ "69" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Material_Stripping_Machine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Material_Stripping_Machine"
+    },
+    "id" : "9",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#EBSOMAT_300_lead_forming_machine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EBSOMAT_300_lead_forming_machine"
+    },
+    "id" : "10",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Manual_soldering_department_operator",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Manual_soldering_department_operator"
+    },
+    "id" : "132",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Actor",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "A superclass for personnel-related concepts",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Actor",
+      "undefined" : "Actor"
+    },
+    "subClasses" : [ "101", "37" ],
+    "id" : "128"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#2nd_line_worker_assembly",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "2nd_line_worker_assembly"
+    },
+    "id" : "139",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Supervisor",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Supervisor",
+      "undefined" : "Supervisor"
+    },
+    "subClasses" : [ "76" ],
+    "comment" : {
+      "undefined" : "People who manage people and processes"
+    },
+    "id" : "77",
+    "superClasses" : [ "37" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Camera",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Camera"
+    },
+    "comment" : {
+      "undefined" : "The system that performs visual quality control using a camera."
+    },
+    "id" : "8",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "161",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "168",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "163",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#MaskingPallet",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MaskingPallet"
+    },
+    "id" : "72",
+    "superClasses" : [ "68" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "184",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "131",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "20",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#AoI_line_operator",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AoI_line_operator"
+    },
+    "id" : "135",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "75",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#1st_line_worker_assembly",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "1st_line_worker_assembly"
+    },
+    "id" : "137",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "61",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Wave_soldering_department_operator",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Wave_soldering_department_operator"
+    },
+    "id" : "138",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#EOL_Testing",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EOL_Testing"
+    },
+    "id" : "164",
+    "superClasses" : [ "88" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Wave_Soldering_Machine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Wave_Soldering_Machine"
+    },
+    "id" : "6",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#ICT_test",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ICT_test"
+    },
+    "id" : "165",
+    "superClasses" : [ "88" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "36", "34" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "92"
+  }, {
+    "instances" : 0,
+    "union" : [ "36", "31" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "211"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#ProcessStep",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ProcessStep",
+      "undefined" : "Process Step"
+    },
+    "id" : "36"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Hand_soldering_tool",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Hand_soldering_tool"
+    },
+    "id" : "14",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#FCT_test",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FCT_test"
+    },
+    "id" : "166",
+    "superClasses" : [ "88" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Resources",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Resources"
+    },
+    "subClasses" : [ "17", "11", "89", "4", "69" ],
+    "id" : "12"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Product_quality_operator",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Product_quality_operator"
+    },
+    "id" : "133",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#3rd_line_worker_assembly",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "3rd_line_worker_assembly"
+    },
+    "id" : "134",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#AoI_personnel",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AoI_personnel"
+    },
+    "id" : "136",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Card",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Card"
+    },
+    "comment" : {
+      "undefined" : "AKA Wheeled transport cart"
+    },
+    "id" : "70",
+    "superClasses" : [ "68" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Responsible_technician",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Responsible_technician"
+    },
+    "comment" : {
+      "undefined" : "The technical personnel who delivers barcode labels to the First Line Worker."
+    },
+    "id" : "141",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#Material_preparation_personnel",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Material_preparation_personnel"
+    },
+    "comment" : {
+      "undefined" : "Personnel who checks the materials required for assembly and delivers them to the line workers."
+    },
+    "id" : "140",
+    "superClasses" : [ "39" ]
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "18",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "21",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "29",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "32",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "35",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "23",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "40",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "45",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "49",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "50",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "53",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "58",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "60",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "64",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "66",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "74",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "80",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "81",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "82",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "83",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "91",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "95",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "98",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "100",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "102",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "105",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "106",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "107",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "108",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "109",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "110",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "111",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "42",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "112",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "113",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "114",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "117",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "118",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "123",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "125",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "126",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "127",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "130",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "146",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "148",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "149",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "150",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "151",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "152",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "153",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "154",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "155",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "156",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "157",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "158",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "159",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "160",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "162",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "167",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "169",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "170",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "171",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "172",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "173",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "174",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "175",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "176",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "177",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "178",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "179",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "180",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "181",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "182",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "183",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "185",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "186",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "187",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "188",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "189",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "190",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "191",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "192",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "193",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "194",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "195",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "196",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "54",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "197",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "198",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "199",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "200",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "201",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "202",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "203",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "204",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "205",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "206",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "207",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "208",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "209",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "210",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "212",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "213",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "214",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "215",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "216",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "217",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "218",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "219",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "220",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "221",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "222",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "24",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "223",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "224",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "147",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "225",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "226",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "227",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "228",
+    "type" : "rdfs:SubClassOf"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#adjacentTo",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "1",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Spatial location description of departments on the floor's operational area",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "adjacentTo",
+      "undefined" : "adjacent To"
+    },
+    "domain" : "1",
+    "attributes" : [ "symmetric", "object" ],
+    "id" : "0"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasLabelID",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "20",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasLabelID",
+      "undefined" : "has Lable ID"
+    },
+    "domain" : "19",
+    "attributes" : [ "functional", "datatype" ],
+    "id" : "18"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#topObjectProperty",
+    "baseIri" : "http://www.w3.org/2002/07/owl",
+    "range" : "22",
+    "label" : {
+      "IRI-based" : "topObjectProperty"
+    },
+    "domain" : "22",
+    "subproperty" : [ "23", "24" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "21"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasWorkOrderForBoardType",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "hasWorkOrderForBoardType",
+      "undefined" : "has Work Order For Board Type"
+    },
+    "domain" : "30",
+    "attributes" : [ "object" ],
+    "id" : "29"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasProcess",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "34",
+    "label" : {
+      "IRI-based" : "hasProcess",
+      "undefined" : "has Process"
+    },
+    "domain" : "33",
+    "attributes" : [ "object" ],
+    "id" : "32"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#requiresRole",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "37",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each Department has several roles.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "requiresRole",
+      "undefined" : "Requires Role"
+    },
+    "domain" : "36",
+    "attributes" : [ "object" ],
+    "id" : "35"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasLocation",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "hasLocation",
+      "undefined" : "has Location"
+    },
+    "superproperty" : [ "21" ],
+    "domain" : "33",
+    "attributes" : [ "object" ],
+    "id" : "23"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasNextRouteStep",
+    "inverse" : "42",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "41",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "This route step is followed by the next route step.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasNextRouteStep",
+      "undefined" : "has Next Route Step"
+    },
+    "domain" : "41",
+    "attributes" : [ "object" ],
+    "id" : "40"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#isRouteStepOf",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "46",
+    "label" : {
+      "IRI-based" : "isRouteStepOf",
+      "undefined" : "is Route Step Of"
+    },
+    "domain" : "41",
+    "attributes" : [ "object" ],
+    "id" : "45"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasOperator",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "37",
+    "label" : {
+      "IRI-based" : "hasOperator",
+      "undefined" : "has Operator"
+    },
+    "domain" : "44",
+    "attributes" : [ "object" ],
+    "id" : "49"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#startedAt",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "51",
+    "label" : {
+      "IRI-based" : "startedAt",
+      "undefined" : "started At"
+    },
+    "domain" : "22",
+    "attributes" : [ "datatype" ],
+    "id" : "50"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasDepertment",
+    "inverse" : "54",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "33",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Operationa Area (or Floor) may have one or more department. Each department has its own goal and set of processes.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasDepertment",
+      "undefined" : "has Department"
+    },
+    "domain" : "43",
+    "attributes" : [ "object" ],
+    "id" : "53"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#topDataProperty",
+    "baseIri" : "http://www.w3.org/2002/07/owl",
+    "range" : "59",
+    "label" : {
+      "IRI-based" : "topDataProperty"
+    },
+    "domain" : "19",
+    "attributes" : [ "datatype", "external" ],
+    "id" : "58"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasMaterialQuantityPerBoard",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "61",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each board type requires specific material with a certain quantity. This property helps calculate how much material is needed for each board and subsequqntly each work order.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasMaterialQuantityPerBoard",
+      "undefined" : "has Material Quantity Per Board"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype" ],
+    "id" : "60"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasStorey",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "43",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "A Factory has operational areas, in which certain operations are carried out.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasStorey",
+      "undefined" : "has Operational Area"
+    },
+    "domain" : "65",
+    "comment" : {
+      "undefined" : "TAG:SPATIAL"
+    },
+    "attributes" : [ "object" ],
+    "id" : "64"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasWorkOrderQuantity",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "67",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each work order has a quanity of the board type requested by client",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasWorkOrderQuantity",
+      "undefined" : "has Work Order Quantity"
+    },
+    "domain" : "30",
+    "attributes" : [ "datatype" ],
+    "id" : "66"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasMaterialID",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "75",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each type of material has an ID (most likely already recorded in the ERP system)",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasMaterialID",
+      "undefined" : "has Material ID"
+    },
+    "domain" : "56",
+    "attributes" : [ "datatype" ],
+    "id" : "74"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasRouteStep",
+    "inverse" : "45",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "41",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "A  route consists of several route steps",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasRouteStep",
+      "undefined" : "has Route Step"
+    },
+    "domain" : "46",
+    "attributes" : [ "object" ],
+    "id" : "80"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#belongsToWorkOrder",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "30",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "This helps to identify which Wip entities belong to what work order",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "belongsToWorkOrder",
+      "undefined" : "belongs To work Order"
+    },
+    "domain" : "19",
+    "attributes" : [ "object" ],
+    "id" : "81"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasWorkOrderForBoardFamily",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "47",
+    "label" : {
+      "IRI-based" : "hasWorkOrderForBoardFamily",
+      "undefined" : "has Work Order For Board Family"
+    },
+    "domain" : "30",
+    "attributes" : [ "object" ],
+    "id" : "82"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasPreviousStep",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "36",
+    "label" : {
+      "IRI-based" : "hasPreviousStep",
+      "undefined" : "has Previous Step"
+    },
+    "domain" : "36",
+    "attributes" : [ "object" ],
+    "id" : "83"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#belongsToDepartment",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "33",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each department has specific tasks that is disjoint from tasks of other departments",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "belongsToDepartment",
+      "undefined" : "belongs To Department"
+    },
+    "domain" : "92",
+    "attributes" : [ "object" ],
+    "id" : "91"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasWorkOrderID",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "96",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each Board belongs to a specific Work Order (and batch)",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasWorkOrderID",
+      "undefined" : "has Work order ID"
+    },
+    "domain" : "30",
+    "attributes" : [ "datatype" ],
+    "id" : "95"
+  }, {
+    "range" : "11",
+    "domain" : "15",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "98"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasRole",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "37",
+    "label" : {
+      "IRI-based" : "hasRole",
+      "undefined" : "has Role"
+    },
+    "domain" : "101",
+    "attributes" : [ "object" ],
+    "id" : "100"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasWorkOrderDescription",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "103",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "This is a descritptin of the order that client has made",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasWorkOrderDescription",
+      "undefined" : "has Work Order Description"
+    },
+    "domain" : "30",
+    "attributes" : [ "datatype" ],
+    "id" : "102"
+  }, {
+    "range" : "11",
+    "domain" : "14",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "105"
+  }, {
+    "range" : "11",
+    "domain" : "13",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "106"
+  }, {
+    "range" : "3",
+    "domain" : "8",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "107"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#refersToProcessStep",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "36",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "This propert helps to explain that at this position in the route, the board enters and completes this process",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "refersToProcessStep",
+      "undefined" : "refers To Process Step"
+    },
+    "domain" : "41",
+    "attributes" : [ "object" ],
+    "id" : "108"
+  }, {
+    "range" : "3",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "109"
+  }, {
+    "range" : "3",
+    "domain" : "10",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "110"
+  }, {
+    "range" : "3",
+    "domain" : "9",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "111"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasPreviousRouteStep",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "41",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "This route step comes after the previous route step",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasPreviousRouteStep",
+      "undefined" : "has Previous Route Step"
+    },
+    "domain" : "41",
+    "attributes" : [ "object" ],
+    "id" : "42"
+  }, {
+    "range" : "3",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "112"
+  }, {
+    "range" : "3",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "113"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasOperationSequenceNumber",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "115",
+    "label" : {
+      "IRI-based" : "hasOperationSequenceNumber",
+      "undefined" : "has Operation Sequence Number"
+    },
+    "domain" : "22",
+    "attributes" : [ "datatype" ],
+    "id" : "114"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#forWIPBoard",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "forWIPBoard",
+      "undefined" : "for WIP Board"
+    },
+    "domain" : "79",
+    "attributes" : [ "object" ],
+    "id" : "117"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#requiresMachine",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "requiresMachine",
+      "undefined" : "requires Machine"
+    },
+    "domain" : "36",
+    "attributes" : [ "object" ],
+    "id" : "118"
+  }, {
+    "range" : "39",
+    "domain" : "124",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "123"
+  }, {
+    "range" : "39",
+    "domain" : "104",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "125"
+  }, {
+    "range" : "39",
+    "domain" : "55",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "126"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasOperationCode",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "122",
+    "label" : {
+      "IRI-based" : "hasOperationCode",
+      "undefined" : "has Operation Code"
+    },
+    "domain" : "22",
+    "attributes" : [ "datatype" ],
+    "id" : "127"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasEquipmentID",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "131",
+    "label" : {
+      "IRI-based" : "hasEquipmentID",
+      "undefined" : "has Equipment ID"
+    },
+    "domain" : "12",
+    "attributes" : [ "functional", "datatype" ],
+    "id" : "130"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#belongsToBoardFamily",
+    "inverse" : "147",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "47",
+    "label" : {
+      "IRI-based" : "belongsToBoardFamily",
+      "undefined" : "belongs To Board Family"
+    },
+    "domain" : "31",
+    "attributes" : [ "object" ],
+    "id" : "146"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasPersonnelID",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "116",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each employee has an ID",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasPersonnelID",
+      "undefined" : "has Personnel ID"
+    },
+    "domain" : "101",
+    "attributes" : [ "functional", "datatype" ],
+    "id" : "148"
+  }, {
+    "range" : "39",
+    "domain" : "136",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "149"
+  }, {
+    "range" : "39",
+    "domain" : "135",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "150"
+  }, {
+    "range" : "39",
+    "domain" : "138",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "151"
+  }, {
+    "range" : "39",
+    "domain" : "137",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "152"
+  }, {
+    "range" : "39",
+    "domain" : "52",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "153"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasProcessStep",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "36",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "A general relationship for Process to be connected to a ProcessStep.",
+        "type" : "label"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "has Process Step",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasProcessStep"
+    },
+    "domain" : "34",
+    "comment" : {
+      "undefined" : "TAG:PROCESS"
+    },
+    "attributes" : [ "object" ],
+    "id" : "154"
+  }, {
+    "range" : "39",
+    "domain" : "99",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "155"
+  }, {
+    "range" : "39",
+    "domain" : "134",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "156"
+  }, {
+    "range" : "39",
+    "domain" : "133",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "157"
+  }, {
+    "range" : "39",
+    "domain" : "38",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "158"
+  }, {
+    "range" : "39",
+    "domain" : "132",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "159"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#belongsToWorkOrderID",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "161",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Literal reference to a work order identifier.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "belongsToWorkOrderID"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype" ],
+    "id" : "160"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasBoardID",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "163",
+    "label" : {
+      "IRI-based" : "hasBoardID",
+      "undefined" : "has Board ID"
+    },
+    "domain" : "19",
+    "attributes" : [ "datatype" ],
+    "id" : "162"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#endedAt",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "168",
+    "label" : {
+      "IRI-based" : "endedAt",
+      "undefined" : "ended At"
+    },
+    "domain" : "22",
+    "attributes" : [ "datatype" ],
+    "id" : "167"
+  }, {
+    "range" : "37",
+    "domain" : "86",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "169"
+  }, {
+    "range" : "4",
+    "domain" : "44",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "170"
+  }, {
+    "range" : "17",
+    "domain" : "28",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "171"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#requiresResources",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "requiresResources",
+      "undefined" : "requires Resources"
+    },
+    "domain" : "36",
+    "attributes" : [ "object" ],
+    "id" : "172"
+  }, {
+    "range" : "37",
+    "domain" : "77",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "173"
+  }, {
+    "range" : "4",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "174"
+  }, {
+    "range" : "17",
+    "domain" : "25",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "175"
+  }, {
+    "range" : "17",
+    "domain" : "16",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "176"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasName",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "120",
+    "label" : {
+      "IRI-based" : "hasName",
+      "undefined" : "has Name"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype" ],
+    "id" : "177"
+  }, {
+    "range" : "17",
+    "domain" : "27",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "178"
+  }, {
+    "range" : "17",
+    "domain" : "26",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "179"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasRoute",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "46",
+    "label" : {
+      "IRI-based" : "hasRoute",
+      "undefined" : "has Route"
+    },
+    "domain" : "31",
+    "attributes" : [ "object" ],
+    "id" : "180"
+  }, {
+    "range" : "44",
+    "domain" : "48",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "181"
+  }, {
+    "range" : "44",
+    "domain" : "62",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "182"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasDepartmentCode",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "184",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each orderID has a departmentCode (Source: EDA by Miren)",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasDepartmentCode",
+      "undefined" : "has Department Code"
+    },
+    "domain" : "30",
+    "attributes" : [ "datatype" ],
+    "id" : "183"
+  }, {
+    "range" : "68",
+    "domain" : "70",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "185"
+  }, {
+    "range" : "44",
+    "domain" : "63",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "186"
+  }, {
+    "range" : "88",
+    "domain" : "93",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "187"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasOperationDescription",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "121",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "Each task have a description that can be recorded",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasOperationDescription",
+      "undefined" : "has Operation Description"
+    },
+    "domain" : "36",
+    "attributes" : [ "datatype" ],
+    "id" : "188"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasQRcode",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "119",
+    "label" : {
+      "IRI-based" : "hasQRcode",
+      "undefined" : "has QR Code"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype" ],
+    "id" : "189"
+  }, {
+    "range" : "88",
+    "domain" : "166",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "190"
+  }, {
+    "range" : "88",
+    "domain" : "165",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "191"
+  }, {
+    "range" : "88",
+    "domain" : "97",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "192"
+  }, {
+    "range" : "88",
+    "domain" : "129",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "193"
+  }, {
+    "range" : "88",
+    "domain" : "87",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "194"
+  }, {
+    "range" : "88",
+    "domain" : "164",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "195"
+  }, {
+    "range" : "39",
+    "domain" : "145",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "196"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#locatedOnOperationalArea",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "43",
+    "label" : {
+      "IRI-based" : "locatedOnOperationalArea",
+      "undefined" : "located On Operational Area"
+    },
+    "domain" : "1",
+    "attributes" : [ "functional", "object" ],
+    "id" : "54"
+  }, {
+    "range" : "39",
+    "domain" : "144",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "197"
+  }, {
+    "range" : "69",
+    "domain" : "85",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "198"
+  }, {
+    "range" : "69",
+    "domain" : "68",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "199"
+  }, {
+    "range" : "39",
+    "domain" : "143",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "200"
+  }, {
+    "range" : "39",
+    "domain" : "142",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "201"
+  }, {
+    "range" : "39",
+    "domain" : "78",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "202"
+  }, {
+    "range" : "39",
+    "domain" : "139",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "203"
+  }, {
+    "range" : "39",
+    "domain" : "57",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "204"
+  }, {
+    "range" : "39",
+    "domain" : "141",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "205"
+  }, {
+    "range" : "39",
+    "domain" : "140",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "206"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasNextStep",
+    "inverse" : "83",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "36",
+    "label" : {
+      "IRI-based" : "hasNextStep",
+      "undefined" : "has Next Step"
+    },
+    "domain" : "36",
+    "attributes" : [ "object" ],
+    "id" : "207"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#processedInDepartment",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "33",
+    "label" : {
+      "IRI-based" : "processedInDepartment",
+      "undefined" : "processed In Department"
+    },
+    "domain" : "31",
+    "comment" : {
+      "undefined" : "a bit explanatin: If a BoardType hasRoute some Route, and that Route routeHasStep some Step, and that Step inDepartment some Department, then the BoardType processedInDepartment that Department."
+    },
+    "attributes" : [ "object" ],
+    "id" : "208"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#executesRouteStep",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "41",
+    "label" : {
+      "IRI-based" : "executesRouteStep",
+      "undefined" : "executes Route Step"
+    },
+    "domain" : "79",
+    "attributes" : [ "object" ],
+    "id" : "209"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#performedByRole",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "37",
+    "label" : {
+      "IRI-based" : "performedByRole",
+      "undefined" : "performed By Role"
+    },
+    "domain" : "36",
+    "attributes" : [ "object" ],
+    "id" : "210"
+  }, {
+    "range" : "12",
+    "domain" : "89",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "212"
+  }, {
+    "range" : "12",
+    "domain" : "11",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "213"
+  }, {
+    "range" : "12",
+    "domain" : "69",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "214"
+  }, {
+    "range" : "12",
+    "domain" : "4",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "215"
+  }, {
+    "range" : "86",
+    "domain" : "39",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "216"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasNextExecutionStep",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "79",
+    "annotations" : {
+      "descriptions" : [ {
+        "identifier" : "descriptions",
+        "language" : "undefined",
+        "value" : "ExecutionStep links a work-in-progress board to the route step it is currently executing, enabling real-time tracking and reasoning",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasNextExecutionStep",
+      "undefined" : "has Next Execution Step"
+    },
+    "domain" : "79",
+    "attributes" : [ "object" ],
+    "id" : "217"
+  }, {
+    "range" : "77",
+    "domain" : "76",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "218"
+  }, {
+    "range" : "12",
+    "domain" : "17",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "219"
+  }, {
+    "range" : "89",
+    "domain" : "90",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "220"
+  }, {
+    "range" : "128",
+    "domain" : "37",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "221"
+  }, {
+    "range" : "128",
+    "domain" : "101",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "222"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#requiresMaterial",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "56",
+    "label" : {
+      "IRI-based" : "requiresMaterial",
+      "undefined" : "requires Material"
+    },
+    "superproperty" : [ "21" ],
+    "domain" : "211",
+    "attributes" : [ "object" ],
+    "id" : "24"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasSameOperationalArea",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "hasSameOperationalArea",
+      "undefined" : "has Same Operational Area"
+    },
+    "domain" : "1",
+    "attributes" : [ "symmetric", "transitive", "reflexive", "object" ],
+    "id" : "223"
+  }, {
+    "range" : "85",
+    "domain" : "84",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "224"
+  }, {
+    "iri" : "http://www.semanticweb.org/MOAFDITO#hasBoardType",
+    "baseIri" : "http://www.semanticweb.org/MOAFDITO",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "hasBoardType",
+      "undefined" : "has Board Type"
+    },
+    "domain" : "47",
+    "attributes" : [ "object" ],
+    "id" : "147"
+  }, {
+    "range" : "68",
+    "domain" : "72",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "225"
+  }, {
+    "range" : "68",
+    "domain" : "71",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "226"
+  }, {
+    "range" : "85",
+    "domain" : "94",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "227"
+  }, {
+    "range" : "68",
+    "domain" : "73",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "228"
+  } ]
+}
