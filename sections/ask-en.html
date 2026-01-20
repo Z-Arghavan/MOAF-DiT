@@ -1,0 +1,47 @@
+<h2 id="ask" class="list">
+Ask MOAF-DiTO
+<span class="backlink"> back to <a href="#toc">ToC</a></span>
+</h2>
+
+<p>
+Type a question. The system will return an answer and a generated SPARQL query.
+</p>
+
+<div>
+  <label for="q"><strong>Question</strong></label><br>
+  <textarea id="q" rows="3" style="width:100%;"></textarea><br><br>
+
+  <button id="btn">Ask</button>
+  <p id="status"></p>
+
+  <h3>Answer</h3>
+  <pre id="answer"></pre>
+
+  <h3>SPARQL</h3>
+  <pre id="sparql"></pre>
+</div>
+
+<script>
+const API_URL = "https://xxxx.ngrok-free.app/ask"; // replace with your ngrok URL
+
+document.getElementById("btn").addEventListener("click", async () => {
+  const question = document.getElementById("q").value.trim();
+  document.getElementById("status").textContent = "Working...";
+  document.getElementById("answer").textContent = "";
+  document.getElementById("sparql").textContent = "";
+
+  try {
+    const res = await fetch(API_URL, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({question})
+    });
+    const data = await res.json();
+    document.getElementById("answer").textContent = data.answer || "";
+    document.getElementById("sparql").textContent = data.sparql || "";
+    document.getElementById("status").textContent = "Done.";
+  } catch (e) {
+    document.getElementById("status").textContent = "Error: " + e;
+  }
+});
+</script>
