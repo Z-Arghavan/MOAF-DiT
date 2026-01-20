@@ -66,7 +66,7 @@ This ontology is released under an open MIT licence. Please check the repository
 
 Questions, feedback, and collaboration requests are welcome via GitHub issues.
 
-**Citation:**  
+**References:**  
 Poveda-Villalón, M., Gómez-Pérez, A., & Suárez-Figueroa, M. C. (2014). *OOPS!: An On-line Tool for Ontology Evaluation.*
 Garijo, D. (2017). *WIDOCO: A Wizard for Documenting Ontologies.*
 
