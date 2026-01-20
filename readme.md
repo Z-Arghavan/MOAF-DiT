@@ -25,7 +25,7 @@ MOAFDITO aims to:
 - **Focus:** Manufacturing processes, resources, roles, locations, and dependencies
 
 ## Neuro-symbolic AI and RAG subgraph extension
-Click on the badge to interct with the code for: 
+Click on the badge to interact with the code for: 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](
 https://colab.research.google.com/github/Z-Arghavan/MOAF-DiT/blob/main/Neuro-symbolic%20AI/MOAF_DiT_NeurosymbolicAI.ipynb
 )
