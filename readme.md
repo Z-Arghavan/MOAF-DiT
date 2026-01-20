@@ -22,7 +22,14 @@ MOAFDITO aims to:
 
 - **Formal language:** OWL 2  
 - **Serialisation:** RDF/XML  
-- **Focus:** Manufacturing processes, resources, roles, locations, and dependencies  
+- **Focus:** Manufacturing processes, resources, roles, locations, and dependencies
+
+## Neuro-symbolic AI and RAG subgraph extension
+Click on the badge to interct with the code for: 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](
+https://colab.research.google.com/github/Z-Arghavan/MOAF-DiT/blob/main/path/to/your_notebook.ipynb
+)
+
 
 ## Usage
 
