@@ -30,11 +30,11 @@ MOAFDITO can be used in digital twin platforms, manufacturing knowledge graphs, 
 ## Project and Contributors
 
 This ontology is part of the **Multi-Ontology AI-based Facility Digital Twin (MOAF-DiT)** project at Eindhoven University of Technology.  
-Project details can be found on TU/e’s research portal: https://research.tue.nl/en/projects/moaf-dit/ :contentReference[oaicite:0]{index=0}
+Project details can be found on TU/e’s research portal: https://research.tue.nl/en/projects/moaf-dit/ 
 
 The project is led by **Prof. Dr. Bige Tunçer**  with contributions from **Dr. Arghavan Akbarieh**.  
-- Bige Tunçer: https://research.tue.nl/en/persons/bige-tun%C3%A7er/ :contentReference[oaicite:1]{index=1}  
-- Arghavan Akbarieh: https://research.tue.nl/en/persons/arghavan-akbarieh/ :contentReference[oaicite:2]{index=2}
+- Bige Tunçer: https://research.tue.nl/en/persons/bige-tun%C3%A7er/   
+- Arghavan Akbarieh: https://research.tue.nl/en/persons/arghavan-akbarieh/ 
 
 ## Evaluation and Documentation
 
