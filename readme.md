@@ -33,6 +33,7 @@ MOAFDITO can be used in digital twin platforms, manufacturing knowledge graphs, 
 An interactive visualisation of the ontology is available via **WebVOWL**:
 
 🔗 https://z-arghavan.github.io/MOAF-DiT/webvowl/
+[![MOAFDITO ontology visualisation](images/MOAFDITO.png)](https://z-arghavan.github.io/MOAF-DiT/webvowl/)
 
 
 ## Project and Contributors
