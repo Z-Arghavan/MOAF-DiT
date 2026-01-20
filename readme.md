@@ -1,34 +1,57 @@
-About Widoco output
-===================
-The purpose of Widoco is to reuse and integrate existing tools for documentation, plus the set of features listed below:
-* Separation of the sections of your html page so you can write them independently and replace only those needed.
-* Automatic annotation in RDF-a of the html produced.
-* Association of a provenance page which includes the history of your vocabulary (W3C PROV-O compliant).
-* Metadata extraction from the ontology plus the means to complete it on the fly when generating your ontology.
-* Guidelines on the main sections that your document should have and how to complete them.
+# MOAFDITO  
+**Manufacturing Ontology Assisted Factory Digital Twin Ontology**
 
-Widoco will create 3 different folders:
-|
-|-provenance (a folder including an html and RDF serialization of how the documentation page was created)
-|-resources (folder with the different resources)
-|-sections (folder with the different sections of the documentation, separated for easy editing. Just edit one and the main page will be updated)
+[![Open an Issue](https://img.shields.io/badge/Open%20an%20Issue-GitHub-blue?logo=github)](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME/issues/new)
 
-Completing ontology metadata.
-===================
-Widoco uses the ontology metadata to update a configuration file. If you complete that configuration file (ended up widoco.conf), the tool will enhance your html with additional details, such as how to cite the document, previous revisions, icons with the licence, etc.
+## Overview
 
-Browser issues
-==========
-The result of executing Widoco is an html file. We have tested it in Mozilla, IE and Chrome, and when the page is stored in a server all the browsers work correctly. If you view the file locally, we recommend you to use Mozilla Firefox (or Internet Explorer, if you must). Google Chrome will not show the contents correctly, as it doesn't allow  XMLHttpRequest without HTTP. If you want to view the page locally with Google Chrome you have two possibilities:
+MOAFDITO is a formal ontology developed to support **semantic interoperability for manufacturing-oriented digital twins**.  
+It provides a structured vocabulary and machine-interpretable relationships for describing factory environments, processes, resources, roles, and operational dependencies.
 
-a) Place the file in a server and access it via its URL (for example, put it in dropbox and access through its public url).
+## Scope and Objectives
 
-b) Execute Chrome with the following commands :
+MOAFDITO aims to:
 
-(WIN) chrome.exe --allow-file-access-from-files,
+- Provide a shared semantic model for factory digital twins  
+- Enable interoperability between heterogeneous manufacturing data sources  
+- Support reasoning over processes, machines, materials, and roles  
+- Facilitate integration with linked data, knowledge graphs, and AI-driven analytics  
 
-(OSX) open /Applications/Google\ Chrome.app/ --args --allow-file-access-from-files
+## Ontology Characteristics
 
-(UNX) /usr/bin/google-chrome --allow-file-access-from-files
+- **Formal language:** OWL 2  
+- **Serialisation:** RDF/XML  
+- **Focus:** Manufacturing processes, resources, roles, locations, and dependencies  
 
-Do you have a problem? open an issue at https://github.com/dgarijo/Widoco
+## Usage
+
+MOAFDITO can be used in digital twin platforms, manufacturing knowledge graphs, semantic validation workflows, and research prototypes requiring interoperable factory data.
+
+## Project and Contributors
+
+This ontology is part of the **Multi-Ontology AI-based Facility Digital Twin (MOAF-DiT)** project at Eindhoven University of Technology.  
+Project details can be found on TU/e’s research portal: https://research.tue.nl/en/projects/moaf-dit/ :contentReference[oaicite:0]{index=0}
+
+The project is led by **Prof. Dr. Bige Tunçer**  with contributions from **Dr. Arghavan Akbarieh**.  
+- Bige Tunçer: https://research.tue.nl/en/persons/bige-tun%C3%A7er/ :contentReference[oaicite:1]{index=1}  
+- Arghavan Akbarieh: https://research.tue.nl/en/persons/arghavan-akbarieh/ :contentReference[oaicite:2]{index=2}
+
+## Evaluation and Documentation
+
+MOAFDITO has been evaluated and documented using established ontology engineering tools.
+
+The ontology was assessed using **OOPS! (Ontology Pitfall Scanner!)** to identify common modelling pitfalls such as missing inverse properties and structural inconsistencies. Identified issues were reviewed to distinguish between actual modelling problems and intentional design decisions. Human-readable documentation for MOAFDITO was generated using **WIDOCO**, providing transparent access to classes, properties, and axioms to support reuse and inspection.
+
+
+## License
+
+This ontology is released under an open MIT licence. Please check the repository for licence details and cite this repo in publications.
+
+## Contact
+
+Questions, feedback, and collaboration requests are welcome via GitHub issues.
+
+**Citation:**  
+Poveda-Villalón, M., Gómez-Pérez, A., & Suárez-Figueroa, M. C. (2014). *OOPS!: An On-line Tool for Ontology Evaluation.*
+Garijo, D. (2017). *WIDOCO: A Wizard for Documenting Ontologies.*
+
