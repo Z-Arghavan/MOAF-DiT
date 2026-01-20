@@ -2,6 +2,7 @@
 **Manufacturing Ontology Assisted Factory Digital Twin Ontology**
 
 [![Open an Issue](https://img.shields.io/badge/Open%20an%20Issue-GitHub-blue?logo=github)](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME/issues/new)
+[![WebVOWL](https://img.shields.io/badge/Ontology-Visualisation-green)](https://z-arghavan.github.io/MOAF-DiT/webvowl/)
 
 ## Overview
 
@@ -27,6 +28,13 @@ MOAFDITO aims to:
 
 MOAFDITO can be used in digital twin platforms, manufacturing knowledge graphs, semantic validation workflows, and research prototypes requiring interoperable factory data.
 
+## Ontology Visualisation
+
+An interactive visualisation of the ontology is available via **WebVOWL**:
+
+🔗 https://z-arghavan.github.io/MOAF-DiT/webvowl/
+
+
 ## Project and Contributors
 
 This ontology is part of the **Multi-Ontology AI-based Facility Digital Twin (MOAF-DiT)** project at Eindhoven University of Technology.  
@@ -37,8 +45,6 @@ The project is led by **Prof. Dr. Bige Tunçer**  with contributions from **Dr. 
 - Arghavan Akbarieh: https://research.tue.nl/en/persons/arghavan-akbarieh/ 
 
 ## Evaluation and Documentation
-
-MOAFDITO has been evaluated and documented using established ontology engineering tools.
 
 The ontology was assessed using **OOPS! (Ontology Pitfall Scanner!)** to identify common modelling pitfalls such as missing inverse properties and structural inconsistencies. Identified issues were reviewed to distinguish between actual modelling problems and intentional design decisions. Human-readable documentation for MOAFDITO was generated using **WIDOCO**, providing transparent access to classes, properties, and axioms to support reuse and inspection.
 
