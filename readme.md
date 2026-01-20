@@ -48,9 +48,10 @@ An interactive visualisation of the ontology is available via **WebVOWL**:
 This ontology is part of the **Multi-Ontology AI-based Facility Digital Twin (MOAF-DiT)** project at Eindhoven University of Technology.  
 Project details can be found on TU/e’s research portal: https://research.tue.nl/en/projects/moaf-dit/ 
 
-The project is led by **Prof. Dr. Bige Tunçer**  with contributions from **Dr. Arghavan Akbarieh**.  
+The WP5 is conducted by **Dr. Arghavan Akbarieh** and led by **Prof. Dr. Bige Tunçer** .
+- Arghavan Akbarieh: https://research.tue.nl/en/persons/arghavan-akbarieh/
 - Bige Tunçer: https://research.tue.nl/en/persons/bige-tun%C3%A7er/   
-- Arghavan Akbarieh: https://research.tue.nl/en/persons/arghavan-akbarieh/ 
+
 
 ## Evaluation and Documentation
 
