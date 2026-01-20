@@ -33,7 +33,7 @@ https://colab.research.google.com/github/Z-Arghavan/MOAF-DiT/blob/main/Neuro-sym
 
 ## Usage
 
-MOAFDITO can be used in digital twin platforms, manufacturing knowledge graphs, semantic validation workflows, and research prototypes requiring interoperable factory data.
+MOAFDITO is designed to use processes, products and routes in a factory digital twin, to create real-time as well as static knowledge graphs, provide semantically validated workflows, and AI-based digital twin prototypes requiring interoperable and trustworthy data.
 
 ## Ontology Visualisation
 
