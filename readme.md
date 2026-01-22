@@ -55,7 +55,7 @@ The WP5 is conducted by **Dr. Arghavan Akbarieh** and led by **Prof. Dr. Bige Tu
 
 ## Evaluation and Documentation
 
-The ontology was assessed using **OOPS! (Ontology Pitfall Scanner!)** to identify common modelling pitfalls such as missing inverse properties and structural inconsistencies. Identified issues were reviewed to distinguish between actual modelling problems and intentional design decisions. Human-readable documentation for MOAFDITO was generated using **WIDOCO**, providing transparent access to classes, properties, and axioms to support reuse and inspection.
+The ontology was assessed using **OOPS! (Ontology Pitfall Scanner!)** to identify common modelling pitfalls and syntax errors. Identified errors were reviewed and adjusted if needed. Human-readable documentation for MOAFDITO was generated using **WIDOCO**.
 
 
 ## License
@@ -67,6 +67,6 @@ This ontology is released under an open MIT licence. Please check the repository
 Questions, feedback, and collaboration requests are welcome via GitHub issues.
 
 **References:**  
-Poveda-Villalón, M., Gómez-Pérez, A., & Suárez-Figueroa, M. C. (2014). *OOPS!: An On-line Tool for Ontology Evaluation.*
-Garijo, D. (2017). *WIDOCO: A Wizard for Documenting Ontologies.*
+- Poveda-Villalón, M., Gómez-Pérez, A., & Suárez-Figueroa, M. C. (2014). *OOPS!: An On-line Tool for Ontology Evaluation.*
+- Garijo, D. (2017). *WIDOCO: A Wizard for Documenting Ontologies.*
 
