@@ -3,7 +3,7 @@
 
 [![Open an Issue](https://img.shields.io/badge/Open%20an%20Issue-GitHub-blue?logo=github)](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME/issues/new)
 [![WebVOWL](https://img.shields.io/badge/Ontology-Visualisation-green)](https://z-arghavan.github.io/MOAF-DiT/webvowl/)
-[![Last Commit](https://img.shields.io/badge/Last%commit-Update-purple)](https://github.com/Z-Arghavan/MOAF-DiT/commits/main/)
+[![Last Commit](https://img.shields.io/badge/Last%commit-purple)](https://github.com/Z-Arghavan/MOAF-DiT/commits/main/)
 
 
 ## Overview
