@@ -1,0 +1,861 @@
+<!-- sections/ask-en.html — drop into your sections/ folder, replacing the old file -->
+<style>
+.ask-wrap{font-family:inherit;max-width:100%}
+.ask-tabs{display:flex;gap:0;border-bottom:2px solid #ccc;margin-bottom:1.4rem}
+.atb{padding:8px 18px;border:none;background:none;cursor:pointer;font-size:13px;border-bottom:3px solid transparent;margin-bottom:-2px;color:#555;transition:all .15s}
+.atb.on{border-bottom-color:#005A9C;color:#005A9C;font-weight:600}
+.ask-pane{display:none}.ask-pane.on{display:block}
+.ask-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.ask-key{padding:6px 10px;border:1px solid #ccc;border-radius:4px;font-size:13px;flex:1}
+.ask-q{width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:14px;font-family:inherit;resize:vertical}
+.ask-btn{padding:8px 20px;background:#005A9C;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:14px;white-space:nowrap}
+.ask-btn:disabled{background:#999;cursor:default}
+.ask-btn.sec{background:#555}
+.banner{padding:10px 16px;border-radius:6px;font-size:14px;font-weight:600;margin:14px 0;display:flex;align-items:center;gap:10px}
+.banner.full{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
+.banner.partial{background:#fff3cd;color:#856404;border:1px solid #ffc107}
+.banner.missing{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
+.banner.none{display:none}
+.ent-panel{margin:14px 0}
+.ent-card{border:1px solid #ddd;border-radius:6px;margin-bottom:10px;overflow:hidden}
+.ent-head{padding:10px 14px;background:#f5f5f5;cursor:pointer;display:flex;align-items:center;gap:10px;user-select:none}
+.ent-type{font-size:11px;padding:2px 7px;border-radius:10px;font-weight:600}
+.ent-type.cls{background:#d0e8ff;color:#003d80}
+.ent-type.op{background:#d4edda;color:#155724}
+.ent-type.dp{background:#fff3cd;color:#856404}
+.ent-type.ind{background:#f0e6ff;color:#4a0080}
+.ent-body{padding:12px 14px;display:none}
+.ent-body.open{display:block}
+.ent-row{display:flex;gap:8px;margin-bottom:6px;font-size:13px}
+.ent-lbl{color:#555;min-width:100px;flex-shrink:0}
+.ent-val{color:#222;flex:1}
+.ent-score{margin-left:auto;font-size:11px;color:#888;font-family:monospace}
+.sim-list{margin:10px 0;padding:10px 14px;background:#f9f9f9;border:1px solid #ddd;border-radius:6px;font-size:13px}
+.sim-tag{display:inline-block;margin:3px 4px 3px 0;padding:3px 10px;background:#e8f0fe;color:#1a73e8;border-radius:10px;cursor:pointer;font-size:12px}
+.sim-tag:hover{background:#1a73e8;color:#fff}
+.ans-block{background:#f9f9f9;border:1px solid #ddd;border-radius:6px;padding:12px 14px;font-size:14px;line-height:1.6;white-space:pre-wrap;margin:14px 0}
+.propose-box{border:2px dashed #005A9C;border-radius:8px;padding:16px;margin:14px 0}
+.propose-box h4{margin:0 0 10px;color:#005A9C}
+.p-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.p-field{display:flex;flex-direction:column;gap:4px;font-size:13px}
+.p-field label{font-weight:600;color:#333}
+.p-field input,.p-field select,.p-field textarea{padding:6px 8px;border:1px solid #ccc;border-radius:4px;font-size:13px;font-family:inherit}
+.p-field textarea{resize:vertical}
+.miss-tags{margin-bottom:10px}
+.miss-tag{display:inline-block;margin:3px 4px 3px 0;padding:4px 12px;background:#fef3cd;border:1px solid #ffc107;color:#856404;border-radius:10px;font-size:12px;cursor:pointer}
+.miss-tag.sel{background:#ffc107;color:#fff;border-color:#e0a800}
+.status-bar{font-size:12px;color:#555;margin:8px 0;min-height:18px}
+.admin-gate{text-align:center;padding:40px}
+.admin-gate input{padding:8px 12px;border:1px solid #ccc;border-radius:4px;margin-right:8px;font-size:14px}
+.admin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.admin-stat{background:#f5f5f5;border-radius:6px;padding:14px;text-align:center}
+.admin-stat big{font-size:24px;font-weight:700;color:#005A9C;display:block}
+.admin-stat small{font-size:12px;color:#666}
+.log-table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+.log-table th{background:#005A9C;color:#fff;padding:7px 10px;text-align:left}
+.log-table td{padding:6px 10px;border-bottom:1px solid #eee;vertical-align:top}
+.log-table tr:hover td{background:#f5faff}
+.badge{display:inline-block;padding:1px 7px;border-radius:8px;font-size:11px;font-weight:600}
+.badge.f{background:#d4edda;color:#155724}
+.badge.p{background:#fff3cd;color:#856404}
+.badge.m{background:#f8d7da;color:#721c24}
+.miss-freq-item{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.miss-freq-bar{height:12px;background:#005A9C;border-radius:3px;min-width:4px}
+.drop-zone{border:2px dashed #ccc;border-radius:8px;padding:30px;text-align:center;color:#888;margin-bottom:16px;cursor:pointer;transition:.15s}
+.drop-zone:hover,.drop-zone.drag{border-color:#005A9C;background:#f0f7ff;color:#005A9C}
+.onto-info{background:#f5f5f5;border:1px solid #ddd;border-radius:6px;padding:12px;font-size:13px;margin:10px 0;display:none}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid #ccc;border-top-color:#005A9C;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+
+<h2 id="ask" class="list">Ask MOAF-DiTO
+  <span class="backlink"> back to <a href="#toc">ToC</a></span>
+</h2>
+
+<div class="ask-wrap">
+
+<!-- ── Tab bar ── -->
+<div class="ask-tabs">
+  <button class="atb on" onclick="MOAF.tab('ask')">🔍 Ask the Schema</button>
+  <button class="atb" onclick="MOAF.tab('upload')">📤 Upload Ontology</button>
+  <button class="atb" onclick="MOAF.tab('admin')">🔒 Admin</button>
+</div>
+
+<!-- ═══════════════════════════ ASK PANE ═══════════════════════════ -->
+<div id="pane-ask" class="ask-pane on">
+
+  <!-- API key row -->
+  <div class="ask-row" style="margin-bottom:14px">
+    <input id="gkey" class="ask-key" type="password" placeholder="Gemini API key (stored locally, never sent to our server)" autocomplete="off"/>
+    <button class="ask-btn sec" onclick="MOAF.saveKey()">Save key</button>
+    <span id="key-ok" style="font-size:12px;color:green;align-self:center"></span>
+  </div>
+
+  <!-- Question -->
+  <textarea id="q-input" class="ask-q" rows="3" placeholder="Ask anything about the MOAF-DiT ontology schema…&#10;e.g. 'Does a Defect class exist?' · 'How many classes are there?' · 'What properties does WorkOrder have?'"></textarea>
+  <div style="display:flex;gap:10px;margin-top:8px;align-items:center">
+    <button id="ask-go" class="ask-btn" onclick="MOAF.ask()">Ask ↗</button>
+    <button class="ask-btn sec" onclick="MOAF.clear()">Clear</button>
+    <span id="ask-status" class="status-bar"></span>
+  </div>
+
+  <!-- Coverage banner -->
+  <div id="cov-banner" class="banner none"></div>
+
+  <!-- Matched entity cards -->
+  <div id="ent-panel" class="ent-panel"></div>
+
+  <!-- Similar / did-you-mean -->
+  <div id="sim-panel"></div>
+
+  <!-- Gemini answer -->
+  <div id="ans-panel"></div>
+
+  <!-- Propose form (shown when partial/missing) -->
+  <div id="propose-wrap" style="display:none">
+    <div class="propose-box">
+      <h4>📝 Propose a missing concept</h4>
+      <p style="font-size:13px;color:#555;margin:0 0 12px">These concepts appear to be missing. Select one or enter a custom name, then describe what you need.</p>
+      <div id="miss-tags-row" class="miss-tags"></div>
+      <div class="p-grid">
+        <div class="p-field">
+          <label>Concept name (CamelCase)</label>
+          <input id="p-name" type="text" placeholder="e.g. MaterialShortage"/>
+        </div>
+        <div class="p-field">
+          <label>Type</label>
+          <select id="p-type">
+            <option>owl:Class</option>
+            <option>owl:ObjectProperty</option>
+            <option>owl:DatatypeProperty</option>
+          </select>
+        </div>
+        <div class="p-field">
+          <label>Suggested parent</label>
+          <input id="p-parent" type="text" placeholder="e.g. WorkOrder"/>
+        </div>
+        <div class="p-field">
+          <label>Your question context</label>
+          <input id="p-ctx" type="text" readonly/>
+        </div>
+      </div>
+      <div class="p-field" style="margin-bottom:10px">
+        <label>Description (what it should represent)</label>
+        <textarea id="p-desc" rows="2" placeholder="e.g. Represents a gap between required and issued material quantity…"></textarea>
+      </div>
+      <div class="p-field" style="margin-bottom:10px">
+        <label>Example triple or usage (optional)</label>
+        <input id="p-ex" type="text" placeholder="e.g. WorkOrder hasShortage MaterialShortage"/>
+      </div>
+      <div class="p-field" style="margin-bottom:12px">
+        <label>Additional notes</label>
+        <input id="p-notes" type="text" placeholder="Optional context for the ontology authors"/>
+      </div>
+      <button class="ask-btn" onclick="MOAF.submitProposal()">Submit proposal</button>
+      <span id="p-ok" style="font-size:13px;color:green;margin-left:12px"></span>
+    </div>
+  </div>
+
+</div><!-- /pane-ask -->
+
+<!-- ═══════════════════════════ UPLOAD PANE ═══════════════════════════ -->
+<div id="pane-upload" class="ask-pane">
+  <p style="font-size:14px;color:#555">Upload any OWL/RDF ontology in Turtle format to run the same analysis against it.</p>
+
+  <div id="drop-zone" class="drop-zone" onclick="document.getElementById('file-pick').click()">
+    <div style="font-size:32px;margin-bottom:8px">📄</div>
+    <div>Drop a <strong>.ttl</strong> file here, or click to browse</div>
+    <div style="font-size:12px;color:#aaa;margin-top:4px">Only Turtle (.ttl) format is supported</div>
+  </div>
+  <input id="file-pick" type="file" accept=".ttl" style="display:none" onchange="MOAF.handleFile(this)"/>
+
+  <div id="up-info" class="onto-info"></div>
+
+  <textarea id="uq-input" class="ask-q" rows="3" placeholder="Ask about the uploaded ontology…" style="margin-top:12px"></textarea>
+  <div style="display:flex;gap:10px;margin-top:8px;align-items:center">
+    <button id="uask-go" class="ask-btn" onclick="MOAF.askUploaded()" disabled>Ask uploaded ontology ↗</button>
+    <span id="uask-status" class="status-bar"></span>
+  </div>
+  <div id="ucov-banner" class="banner none"></div>
+  <div id="uent-panel" class="ent-panel"></div>
+  <div id="usim-panel"></div>
+  <div id="uans-panel"></div>
+</div>
+
+<!-- ═══════════════════════════ ADMIN PANE ═══════════════════════════ -->
+<div id="pane-admin" class="ask-pane">
+  <div id="admin-gate" class="admin-gate">
+    <h3>🔒 Admin access</h3>
+    <p style="color:#555;font-size:14px">Enter the admin password to view analytics.</p>
+    <input id="admin-pw" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')MOAF.adminLogin()"/>
+    <button class="ask-btn" onclick="MOAF.adminLogin()">Enter</button>
+    <div id="admin-err" style="color:red;font-size:13px;margin-top:8px"></div>
+  </div>
+  <div id="admin-dash" style="display:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+      <h3 style="margin:0">📊 Analytics dashboard</h3>
+      <div style="display:flex;gap:8px">
+        <button class="ask-btn sec" onclick="MOAF.exportLog('json')">Export JSON</button>
+        <button class="ask-btn sec" onclick="MOAF.exportLog('csv')">Export CSV</button>
+        <button class="ask-btn sec" onclick="MOAF.adminLogout()" style="background:#c0392b">Log out</button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div id="admin-stats" class="admin-grid"></div>
+
+    <!-- Missing concept frequency -->
+    <h4>❌ Most-requested missing concepts</h4>
+    <p style="font-size:13px;color:#555">These are concepts users asked about that were not found in the ontology. Use this to guide ontology extension.</p>
+    <div id="miss-freq"></div>
+
+    <!-- Proposals -->
+    <h4>📝 User proposals</h4>
+    <div id="proposals-list"></div>
+
+    <!-- Full log -->
+    <h4>📋 Full question log</h4>
+    <div style="overflow-x:auto">
+      <table class="log-table">
+        <thead><tr><th>Timestamp</th><th>Question</th><th>Coverage</th><th>Missing concepts</th><th>Answer preview</th></tr></thead>
+        <tbody id="log-tbody"></tbody>
+      </table>
+    </div>
+    <button class="ask-btn sec" style="margin-top:10px;background:#c0392b" onclick="MOAF.clearLog()">🗑 Clear all log data</button>
+  </div>
+</div>
+
+</div><!-- /ask-wrap -->
+
+<script>
+(function(){
+'use strict';
+
+/* ─────────────────────────────────────────────
+   CONSTANTS
+───────────────────────────────────────────── */
+const ONTO_URL   = 'https://z-arghavan.github.io/MOAF-DiT/ontology.ttl';
+const GEMINI_GEN = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+const LOG_KEY    = 'moafdito_qa_v2';
+const PROP_KEY   = 'moafdito_proposals_v2';
+const ADMIN_PASS = 'moaf2025';
+const THRESH_FULL    = 0.85;
+const THRESH_PARTIAL = 0.55;
+const THRESH_SIM     = 0.30;
+
+const RDF  = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
+const RDFS = 'http://www.w3.org/2000/01/rdf-schema#';
+const OWL  = 'http://www.w3.org/2002/07/owl#';
+const DC   = 'http://purl.org/dc/terms/';
+
+/* ─────────────────────────────────────────────
+   STATE
+───────────────────────────────────────────── */
+let mainOnto   = null;   // parsed from GitHub Pages
+let uploadOnto = null;   // parsed from file upload
+let n3Ready    = false;
+
+/* ─────────────────────────────────────────────
+   N3.JS LOADER
+───────────────────────────────────────────── */
+function loadN3(cb){
+  if(window.N3){ n3Ready=true; cb(); return; }
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/n3@1.17.3/browser/n3.min.js';
+  s.onload=function(){ n3Ready=true; cb(); };
+  s.onerror=function(){ status('ask','Failed to load N3.js parser'); };
+  document.head.appendChild(s);
+}
+
+/* ─────────────────────────────────────────────
+   TTL → ENTITY INDEX
+───────────────────────────────────────────── */
+function parseTTL(text){
+  return new Promise((res,rej)=>{
+    const parser=new N3.Parser({blankNodePrefix:''});
+    const quads=[];
+    parser.parse(text,(err,q)=>{
+      if(err) rej(err);
+      else if(q) quads.push(q);
+      else res(buildIndex(quads));
+    });
+  });
+}
+
+function obj(q){ return q.object.value; }
+function sub(q){ return q.subject.value; }
+function pred(q){ return q.predicate.value; }
+function localName(iri){ return iri.split('#').pop().split('/').pop(); }
+function camelSplit(s){ return s.replace(/([A-Z])/g,' $1').replace(/[-_]/g,' ').trim().toLowerCase(); }
+function normText(t){ return t.replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim().toLowerCase(); }
+
+function buildIndex(quads){
+  const ents={};
+  const children={};
+
+  function ent(iri){
+    if(!ents[iri]) ents[iri]={iri, types:[], labels:[], comments:[], parents:[], domain:[], range:[], subs:[]};
+    return ents[iri];
+  }
+
+  for(const q of quads){
+    const s=sub(q), p=pred(q), o=obj(q);
+    if(p===RDF+'type'){
+      const e=ent(s); e.types.push(localName(o));
+      // track children for subClassOf
+      if(o===OWL+'Class') e.kind='Class';
+      if(o===OWL+'ObjectProperty') e.kind='ObjectProperty';
+      if(o===OWL+'DatatypeProperty') e.kind='DataProperty';
+      if(o===OWL+'NamedIndividual') e.kind='Individual';
+    } else if(p===RDFS+'label'){
+      ent(s).labels.push(q.object.value);
+    } else if(p===RDFS+'comment'){
+      ent(s).comments.push(q.object.value);
+    } else if(p===DC+'descriptions'||p===DC+'description'){
+      ent(s).comments.push(q.object.value);
+    } else if(p===RDFS+'subClassOf'&&!o.startsWith('_')){
+      ent(s).parents.push(o);
+      if(!children[o]) children[o]=[];
+      children[o].push(s);
+    } else if(p===RDFS+'domain'){
+      ent(s).domain.push(o);
+    } else if(p===RDFS+'range'){
+      ent(s).range.push(o);
+    }
+  }
+
+  // add children
+  for(const [p,cs] of Object.entries(children)){
+    if(ents[p]) ents[p].subs=cs;
+  }
+
+  // filter to meaningful entities and build searchText
+  const index=[];
+  for(const e of Object.values(ents)){
+    if(!e.kind) continue;
+    const name=localName(e.iri);
+    const allText=[name, camelSplit(name), ...e.labels, ...e.comments].join(' ');
+    e.searchText=normText(allText);
+    e.name=name;
+    e.label=e.labels[0]||name;
+    e.comment=e.comments[0]||'';
+    index.push(e);
+  }
+  return { index, total:index.length,
+    classes:index.filter(e=>e.kind==='Class').length,
+    objProps:index.filter(e=>e.kind==='ObjectProperty').length,
+    dataProps:index.filter(e=>e.kind==='DataProperty').length,
+    individuals:index.filter(e=>e.kind==='Individual').length,
+    raw:quads };
+}
+
+/* ─────────────────────────────────────────────
+   SIMILARITY SCORING
+───────────────────────────────────────────── */
+function scoreEntity(query, ent){
+  const q=normText(query);
+  const e=ent.searchText;
+  if(!e) return 0;
+  // exact local name match
+  if(normText(ent.name)===q) return 1.0;
+  // contains whole query
+  if(e.includes(q)) return 0.9;
+  // token jaccard
+  const qt=new Set(q.split(' ').filter(t=>t.length>2));
+  const et=new Set(e.split(' ').filter(t=>t.length>2));
+  if(qt.size===0) return 0;
+  const inter=[...qt].filter(t=>et.has(t)).length;
+  const union=new Set([...qt,...et]).size;
+  const jaccard=inter/union;
+  // partial token hit bonus
+  const partial=[...qt].filter(t=>e.includes(t)).length/qt.size;
+  return Math.max(jaccard, partial*0.7);
+}
+
+function searchOntology(question, onto, thresh=0.15){
+  const parts=question.toLowerCase().split(/\band\b|\bor\b|\bwith\b|\bof\b|\bfor\b|\bthe\b|\ba\b/);
+  // score each entity as max score across question parts
+  return onto.index.map(e=>{
+    const score=Math.max(...parts.map(p=>scoreEntity(p.trim(),e)));
+    return {...e, score};
+  }).filter(e=>e.score>=thresh).sort((a,b)=>b.score-a.score);
+}
+
+/* ─────────────────────────────────────────────
+   DIRECT SCHEMA QUESTIONS (no Gemini needed)
+───────────────────────────────────────────── */
+function tryDirectAnswer(q, onto){
+  const lq=q.toLowerCase();
+  // "how many classes"
+  if(/how many class/.test(lq)) return `The ontology contains **${onto.classes} classes** (owl:Class).`;
+  if(/how many object prop/.test(lq)) return `The ontology contains **${onto.objProps} object properties**.`;
+  if(/how many data prop/.test(lq)) return `The ontology contains **${onto.dataProps} data properties**.`;
+  if(/how many prop/.test(lq)) return `The ontology contains **${onto.objProps+onto.dataProps} properties** (${onto.objProps} object + ${onto.dataProps} data).`;
+  if(/how many individual/.test(lq)) return `The ontology contains **${onto.individuals} named individuals**.`;
+  if(/how many entit|how many class|total class|total entit/.test(lq)) return `The ontology has **${onto.total} entities** total: ${onto.classes} classes, ${onto.objProps} object properties, ${onto.dataProps} data properties, ${onto.individuals} named individuals.`;
+  if(/list all class/.test(lq)){
+    const names=onto.index.filter(e=>e.kind==='Class').map(e=>e.label).join(', ');
+    return `All ${onto.classes} classes: ${names}`;
+  }
+  if(/list all object prop/.test(lq)){
+    const names=onto.index.filter(e=>e.kind==='ObjectProperty').map(e=>e.label).join(', ');
+    return `All ${onto.objProps} object properties: ${names}`;
+  }
+  return null;
+}
+
+/* ─────────────────────────────────────────────
+   GEMINI API
+───────────────────────────────────────────── */
+function getKey(){ return localStorage.getItem('moaf_gkey')||''; }
+
+async function callGemini(prompt){
+  const key=getKey();
+  if(!key) throw new Error('No Gemini API key. Please enter and save your key above.');
+  const r=await fetch(GEMINI_GEN+'?key='+key,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({contents:[{parts:[{text:prompt}]}],
+      generationConfig:{temperature:0.2,maxOutputTokens:1024}})
+  });
+  if(!r.ok) throw new Error('Gemini API error: '+r.status);
+  const d=await r.json();
+  return d.candidates?.[0]?.content?.parts?.[0]?.text||'';
+}
+
+function buildPrompt(question, topMatches, onto){
+  const entityList=onto.index.map(e=>`${e.kind}: ${e.name}${e.label!==e.name?' ('+e.label+')':''}`).join('\n');
+  const matchSnip=topMatches.slice(0,6).map(e=>
+    `- ${e.name} [${e.kind}] score=${e.score.toFixed(2)}: ${e.comment.substring(0,80)}`
+  ).join('\n');
+
+  return `You are an ontology expert for the MOAF-DiT manufacturing ontology (PCB production at Karel Electronics).
+
+ONTOLOGY SUMMARY:
+${onto.classes} classes, ${onto.objProps} object properties, ${onto.dataProps} data properties, ${onto.individuals} individuals.
+
+ALL ENTITIES:
+${entityList}
+
+TOP STRING-MATCHED ENTITIES FOR THIS QUESTION:
+${matchSnip||'(none above threshold)'}
+
+USER QUESTION: "${question}"
+
+Tasks:
+1. Assess coverage: is the core concept in the question "fully_covered", "partially_covered", or "not_covered" by this ontology?
+2. List any concepts the user needs that are MISSING from the ontology (use CamelCase OWL-style names).
+3. Give a helpful, precise answer about what the ontology schema contains for this question.
+4. If covered, name the key entity and describe what it does.
+5. Suggest a plausible parent class for any missing concept.
+
+Return ONLY valid JSON (no prose before or after):
+{
+  "coverage": "fully_covered|partially_covered|not_covered",
+  "answer": "A clear, helpful explanation about the ontology schema...",
+  "missing_concepts": ["ConceptNameA","ConceptNameB"],
+  "suggested_parent": "ParentClass",
+  "coverage_explanation": "One sentence explaining the coverage decision"
+}`;
+}
+
+async function judgeQuestion(question, topMatches, onto){
+  const prompt=buildPrompt(question, topMatches, onto);
+  const raw=await callGemini(prompt);
+  // extract JSON from response (Gemini sometimes wraps in ```json```)
+  const m=raw.match(/\{[\s\S]*\}/);
+  if(!m) return {coverage:'partially_covered',answer:raw,missing_concepts:[],suggested_parent:'',coverage_explanation:''};
+  try{ return JSON.parse(m[0]); }
+  catch(e){ return {coverage:'partially_covered',answer:raw,missing_concepts:[],suggested_parent:'',coverage_explanation:''}; }
+}
+
+/* ─────────────────────────────────────────────
+   UI HELPERS
+───────────────────────────────────────────── */
+function status(prefix,msg){ const el=document.getElementById(prefix+'ask-status')||document.getElementById('ask-status'); if(el) el.textContent=msg; }
+function $id(id){ return document.getElementById(id); }
+
+function kindBadge(kind){
+  const map={Class:'cls',ObjectProperty:'op',DataProperty:'dp',Individual:'ind'};
+  const label={Class:'Class',ObjectProperty:'ObjectProp',DataProperty:'DataProp',Individual:'Individual'};
+  return `<span class="ent-type ${map[kind]||'cls'}">${label[kind]||kind}</span>`;
+}
+
+function renderEntityCard(e, idx){
+  const parentNames=e.parents.map(p=>localName(p)).join(', ')||'—';
+  const subNames=e.subs.map(p=>localName(p)).join(', ')||'—';
+  const domNames=e.domain.map(p=>localName(p)).join(', ')||'—';
+  const rngNames=e.range.map(p=>localName(p)).join(', ')||'—';
+  const exTriple=e.kind==='ObjectProperty'&&e.domain[0]&&e.range[0]
+    ? `<${localName(e.domain[0])}> :${e.name} <${localName(e.range[0])}>`
+    : e.kind==='Class'&&e.subs[0]
+    ? `<${localName(e.subs[0])}> a :${e.name}`
+    : `:someInstance a :${e.name}`;
+
+  return `<div class="ent-card">
+    <div class="ent-head" onclick="this.nextElementSibling.classList.toggle('open')">
+      ${kindBadge(e.kind)}
+      <strong style="font-size:14px">:${e.name}</strong>
+      ${e.label!==e.name?`<span style="font-size:13px;color:#555">${e.label}</span>`:''}
+      <span class="ent-score">match ${(e.score*100).toFixed(0)}%</span>
+      <span style="margin-left:8px;color:#aaa;font-size:12px">▾</span>
+    </div>
+    <div class="ent-body">
+      <div class="ent-row"><span class="ent-lbl">Definition</span><span class="ent-val">${e.comment||'<em style="color:#aaa">No definition provided</em>'}</span></div>
+      <div class="ent-row"><span class="ent-lbl">Type</span><span class="ent-val">${e.kind}</span></div>
+      <div class="ent-row"><span class="ent-lbl">Parents</span><span class="ent-val">${parentNames}</span></div>
+      ${e.kind==='Class'?`<div class="ent-row"><span class="ent-lbl">Subclasses</span><span class="ent-val">${subNames}</span></div>`:''}
+      ${e.kind!=='Class'?`<div class="ent-row"><span class="ent-lbl">Domain</span><span class="ent-val">${domNames}</span></div>
+      <div class="ent-row"><span class="ent-lbl">Range</span><span class="ent-val">${rngNames}</span></div>`:''}
+      <div class="ent-row"><span class="ent-lbl">IRI</span><span class="ent-val" style="font-family:monospace;font-size:11px;word-break:break-all">${e.iri}</span></div>
+      <div class="ent-row"><span class="ent-lbl">Example triple</span><span class="ent-val" style="font-family:monospace;font-size:12px;color:#005A9C">${exTriple}</span></div>
+    </div>
+  </div>`;
+}
+
+function renderCoverage(coverageStr, explanation){
+  const cfg={
+    fully_covered:   {cls:'full',   icon:'✅', label:'Fully covered'},
+    partially_covered:{cls:'partial',icon:'⚠️', label:'Partially covered'},
+    not_covered:     {cls:'missing',icon:'❌', label:'Not covered'}
+  }[coverageStr]||{cls:'partial',icon:'⚠️',label:'Unknown'};
+  return `<div class="banner ${cfg.cls}">${cfg.icon} <strong>${cfg.label}</strong>${explanation?' — '+explanation:''}</div>`;
+}
+
+function renderSimilar(all, question, prefix=''){
+  // entities that scored > 0 but below partial threshold
+  const low=all.filter(e=>e.score>0.08&&e.score<THRESH_PARTIAL);
+  if(!low.length) return;
+  const tags=low.slice(0,8).map(e=>
+    `<span class="sim-tag" onclick="document.getElementById('${prefix||'q'}-input').value=':${e.name}';MOAF.ask${prefix?'Uploaded':''}()">:${e.name}</span>`
+  ).join('');
+  $id(prefix+'sim-panel').innerHTML=`<div class="sim-list">💡 <strong>Similar concepts in the ontology:</strong> ${tags}</div>`;
+}
+
+/* ─────────────────────────────────────────────
+   ANALYTICS (localStorage)
+───────────────────────────────────────────── */
+function logEntry(entry){
+  const log=JSON.parse(localStorage.getItem(LOG_KEY)||'[]');
+  log.push({...entry, ts:new Date().toISOString()});
+  localStorage.setItem(LOG_KEY, JSON.stringify(log));
+}
+function getLog(){ return JSON.parse(localStorage.getItem(LOG_KEY)||'[]'); }
+function getProposals(){ return JSON.parse(localStorage.getItem(PROP_KEY)||'[]'); }
+
+/* ─────────────────────────────────────────────
+   MAIN ASK FLOW
+───────────────────────────────────────────── */
+async function runAsk(question, onto, prefix){
+  const pfx=prefix||'';
+  const banEl=$id(pfx+'cov-banner');
+  const entEl=$id(pfx+'ent-panel');
+  const simEl=$id(pfx+'sim-panel');
+  const ansEl=$id(pfx+'ans-panel');
+  const propEl=$id(pfx+'propose-wrap')||$id('propose-wrap');
+
+  banEl.className='banner none';
+  entEl.innerHTML='';
+  simEl.innerHTML='';
+  ansEl.innerHTML='';
+  if(propEl) propEl.style.display='none';
+
+  if(!question.trim()){ status(pfx,'Please enter a question.'); return; }
+  if(!onto){ status(pfx,'Ontology not loaded yet.'); return; }
+
+  status(pfx,'<span class="spinner"></span> Searching ontology…');
+
+  // 1. Try direct schema answer
+  const direct=tryDirectAnswer(question, onto);
+
+  // 2. String search
+  const all=searchOntology(question, onto);
+  const topMatches=all.filter(e=>e.score>=THRESH_SIM);
+  const maxScore=topMatches.length?topMatches[0].score:0;
+
+  // 3. Quick coverage from string scores
+  let quickCov=maxScore>=THRESH_FULL?'fully_covered':maxScore>=THRESH_PARTIAL?'partially_covered':'not_covered';
+
+  // Render top entity cards immediately
+  const topCards=topMatches.slice(0,5);
+  if(topCards.length){
+    entEl.innerHTML=`<strong style="font-size:13px;color:#555">${topCards.length} matching entit${topCards.length>1?'ies':'y'} found:</strong><br><br>`
+      +topCards.map((e,i)=>renderEntityCard(e,i)).join('');
+  }
+
+  // Show similar / did-you-mean
+  renderSimilar(all, question, pfx);
+
+  // If direct answer (counting questions etc.) skip Gemini
+  if(direct){
+    banEl.outerHTML; // keep banner class
+    banEl.className=`banner ${quickCov==='not_covered'?'missing':quickCov==='fully_covered'?'full':'partial'}`;
+    banEl.innerHTML=`✅ <strong>Direct answer</strong>`;
+    ansEl.innerHTML=`<div class="ans-block">${direct.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')}</div>`;
+    status(pfx,'');
+    logEntry({question,coverage:'fully_covered',missing:[],answer:direct,source:'direct'});
+    return;
+  }
+
+  // 4. Gemini judge
+  try{
+    status(pfx,'<span class="spinner"></span> Asking Gemini…');
+    const result=await judgeQuestion(question, topMatches, onto);
+    const cov=result.coverage||quickCov;
+
+    // Coverage banner
+    banEl.className=`banner ${cov==='fully_covered'?'full':cov==='not_covered'?'missing':'partial'}`;
+    banEl.innerHTML=renderCoverage(cov, result.coverage_explanation).replace(/<div.*?>/,'').replace(/<\/div>/,'');
+    // fix: just set inner text
+    banEl.className=`banner ${cov==='fully_covered'?'full':cov==='not_covered'?'missing':'partial'}`;
+    const icon=cov==='fully_covered'?'✅':cov==='not_covered'?'❌':'⚠️';
+    const label=cov==='fully_covered'?'Fully covered':cov==='not_covered'?'Not covered':'Partially covered';
+    banEl.innerHTML=`${icon} <strong>${label}</strong>${result.coverage_explanation?' — '+result.coverage_explanation:''}`;
+
+    // Answer
+    if(result.answer){
+      ansEl.innerHTML=`<div class="ans-block">${result.answer.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>')}</div>`;
+    }
+
+    // Propose form when partial/missing
+    if(cov!=='fully_covered'&&propEl){
+      propEl.style.display='block';
+      $id('p-ctx').value=question;
+      // pre-fill concept name from AI suggestion
+      const missing=result.missing_concepts||[];
+      const tagEl=$id('miss-tags-row');
+      if(tagEl&&missing.length){
+        tagEl.innerHTML=missing.map(m=>
+          `<span class="miss-tag" onclick="MOAF.selectMissConcept(this,'${m}')">${m}</span>`
+        ).join('');
+        $id('p-name').value=missing[0]||'';
+      }
+      if(result.suggested_parent) $id('p-parent').value=result.suggested_parent;
+    }
+
+    // Log
+    logEntry({question, coverage:cov, missing:result.missing_concepts||[], answer:result.answer, source:'gemini'});
+    status(pfx,'');
+  } catch(e){
+    // Gemini failed — show string-match result only
+    banEl.className=`banner ${quickCov==='fully_covered'?'full':quickCov==='not_covered'?'missing':'partial'}`;
+    const icon2=quickCov==='fully_covered'?'✅':quickCov==='not_covered'?'❌':'⚠️';
+    banEl.innerHTML=`${icon2} <strong>String-match result</strong> (Gemini unavailable: ${e.message})`;
+    status(pfx,'');
+    logEntry({question,coverage:quickCov,missing:[],answer:'Gemini unavailable',source:'string-only'});
+  }
+}
+
+/* ─────────────────────────────────────────────
+   ADMIN DASHBOARD
+───────────────────────────────────────────── */
+function renderAdmin(){
+  const log=getLog();
+  const props=getProposals();
+  const full=log.filter(l=>l.coverage==='fully_covered').length;
+  const part=log.filter(l=>l.coverage==='partially_covered').length;
+  const miss=log.filter(l=>l.coverage==='not_covered').length;
+
+  $id('admin-stats').innerHTML=`
+    <div class="admin-stat"><big>${log.length}</big><small>Total questions</small></div>
+    <div class="admin-stat"><big style="color:#155724">${full}</big><small>Fully covered ✅</small></div>
+    <div class="admin-stat"><big style="color:#856404">${part}</big><small>Partially covered ⚠️</small></div>
+    <div class="admin-stat"><big style="color:#721c24">${miss}</big><small>Not covered ❌</small></div>`;
+
+  // Missing concept frequency
+  const freq={};
+  log.forEach(l=>{ (l.missing||[]).forEach(m=>{ freq[m]=(freq[m]||0)+1; }); });
+  const freqSorted=Object.entries(freq).sort((a,b)=>b[1]-a[1]);
+  const maxF=freqSorted[0]?freqSorted[0][1]:1;
+  $id('miss-freq').innerHTML=freqSorted.length
+    ? freqSorted.map(([name,count])=>`
+      <div class="miss-freq-item">
+        <div class="miss-freq-bar" style="width:${(count/maxF*200).toFixed(0)}px"></div>
+        <strong style="font-size:13px">:${name}</strong>
+        <span style="font-size:12px;color:#888">${count} time${count>1?'s':''}</span>
+      </div>`).join('')
+    : '<p style="color:#888;font-size:13px">No missing concepts recorded yet.</p>';
+
+  // Proposals
+  $id('proposals-list').innerHTML=props.length
+    ? props.map(p=>`<div style="border:1px solid #ddd;border-radius:6px;padding:10px 14px;margin-bottom:8px;font-size:13px">
+        <strong>${p.name}</strong> [${p.type}] → parent: ${p.parent||'—'}<br>
+        <span style="color:#555">${p.desc||'—'}</span><br>
+        <span style="color:#aaa;font-size:11px">${p.ts} | Context: "${p.ctx}"</span>
+      </div>`).join('')
+    : '<p style="color:#888;font-size:13px">No proposals yet.</p>';
+
+  // Full log table
+  $id('log-tbody').innerHTML=log.slice().reverse().map(l=>{
+    const badge=l.coverage==='fully_covered'?'f':l.coverage==='not_covered'?'m':'p';
+    return `<tr>
+      <td style="white-space:nowrap">${l.ts.replace('T',' ').substring(0,19)}</td>
+      <td>${escH(l.question)}</td>
+      <td><span class="badge ${badge}">${l.coverage||'?'}</span></td>
+      <td style="color:#721c24">${(l.missing||[]).join(', ')||'—'}</td>
+      <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escH((l.answer||'').substring(0,80))}</td>
+    </tr>`;
+  }).join('');
+}
+
+function escH(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+/* ─────────────────────────────────────────────
+   MAIN INIT
+───────────────────────────────────────────── */
+function init(){
+  // Restore saved key
+  const saved=localStorage.getItem('moaf_gkey')||'';
+  if(saved){ $id('gkey').value=saved; $id('key-ok').textContent='✓ Key loaded'; }
+
+  // Load N3, then fetch main ontology
+  loadN3(async function(){
+    status('','<span class="spinner"></span> Loading MOAF-DiT ontology…');
+    try{
+      // try relative path first (works on GitHub Pages), then absolute
+      let text;
+      try{ text=await fetch('ontology.ttl').then(r=>{ if(!r.ok) throw 0; return r.text(); }); }
+      catch{ text=await fetch(ONTO_URL).then(r=>{ if(!r.ok) throw new Error(r.status); return r.text(); }); }
+      mainOnto=await parseTTL(text);
+      status('',`✓ Ontology loaded — ${mainOnto.total} entities (${mainOnto.classes} classes, ${mainOnto.objProps} obj props, ${mainOnto.dataProps} data props)`);
+    } catch(e){
+      status('','⚠ Could not load ontology: '+e.message+'. Questions will rely on Gemini only.');
+    }
+  });
+
+  // Drag-and-drop
+  const dz=$id('drop-zone');
+  dz.addEventListener('dragover',e=>{ e.preventDefault(); dz.classList.add('drag'); });
+  dz.addEventListener('dragleave',()=>dz.classList.remove('drag'));
+  dz.addEventListener('drop',e=>{ e.preventDefault(); dz.classList.remove('drag'); MOAF.handleFileDrop(e.dataTransfer.files[0]); });
+
+  // Enter key on question box
+  $id('q-input').addEventListener('keydown',e=>{ if(e.ctrlKey&&e.key==='Enter') MOAF.ask(); });
+  $id('uq-input').addEventListener('keydown',e=>{ if(e.ctrlKey&&e.key==='Enter') MOAF.askUploaded(); });
+}
+
+/* ─────────────────────────────────────────────
+   PUBLIC API  (window.MOAF)
+───────────────────────────────────────────── */
+window.MOAF={
+  tab(name){
+    document.querySelectorAll('.ask-pane').forEach(p=>p.classList.remove('on'));
+    document.querySelectorAll('.atb').forEach(b=>b.classList.remove('on'));
+    $id('pane-'+name).classList.add('on');
+    const idx=['ask','upload','admin'].indexOf(name);
+    document.querySelectorAll('.atb')[idx].classList.add('on');
+    if(name==='admin') renderAdmin();
+  },
+
+  saveKey(){
+    const k=$id('gkey').value.trim();
+    if(!k){ alert('Please enter your Gemini API key.'); return; }
+    localStorage.setItem('moaf_gkey',k);
+    $id('key-ok').textContent='✓ Saved';
+    setTimeout(()=>$id('key-ok').textContent='',2000);
+  },
+
+  async ask(){
+    const q=$id('q-input').value.trim();
+    await runAsk(q, mainOnto, '');
+  },
+
+  async askUploaded(){
+    const q=$id('uq-input').value.trim();
+    await runAsk(q, uploadOnto, 'u');
+  },
+
+  clear(){
+    ['q-input','ask-status','cov-banner','ent-panel','sim-panel','ans-panel']
+      .forEach(id=>{ const el=$id(id); if(el){ if(id==='q-input') el.value=''; else el.innerHTML=''; }});
+    $id('cov-banner').className='banner none';
+    $id('propose-wrap').style.display='none';
+  },
+
+  selectMissConcept(el, name){
+    document.querySelectorAll('.miss-tag').forEach(t=>t.classList.remove('sel'));
+    el.classList.add('sel');
+    $id('p-name').value=name;
+  },
+
+  submitProposal(){
+    const name=$id('p-name').value.trim();
+    if(!name){ alert('Please enter a concept name.'); return; }
+    const props=getProposals();
+    props.push({
+      name, type:$id('p-type').value, parent:$id('p-parent').value,
+      desc:$id('p-desc').value, example:$id('p-ex').value,
+      notes:$id('p-notes').value, ctx:$id('p-ctx').value,
+      ts:new Date().toISOString()
+    });
+    localStorage.setItem(PROP_KEY, JSON.stringify(props));
+    $id('p-ok').textContent='✓ Proposal saved! Thank you.';
+    setTimeout(()=>$id('p-ok').textContent='',3000);
+  },
+
+  async handleFile(input){ await MOAF.handleFileDrop(input.files[0]); },
+  async handleFileDrop(file){
+    if(!file){ return; }
+    if(!file.name.endsWith('.ttl')){ alert('Please upload a .ttl (Turtle) file.'); return; }
+    $id('uask-status').innerHTML='<span class="spinner"></span> Parsing…';
+    try{
+      const text=await file.text();
+      if(!n3Ready){ await new Promise(r=>loadN3(r)); }
+      uploadOnto=await parseTTL(text);
+      $id('up-info').style.display='block';
+      $id('up-info').innerHTML=`<strong>${file.name}</strong> — ${uploadOnto.total} entities: ${uploadOnto.classes} classes, ${uploadOnto.objProps} obj props, ${uploadOnto.dataProps} data props, ${uploadOnto.individuals} individuals`;
+      $id('drop-zone').innerHTML=`<div style="font-size:28px">✅</div><div><strong>${file.name}</strong> loaded (${uploadOnto.total} entities)</div>`;
+      $id('uask-go').disabled=false;
+      $id('uask-status').textContent='';
+    } catch(e){
+      $id('uask-status').textContent='Parse error: '+e.message;
+    }
+  },
+
+  adminLogin(){
+    if($id('admin-pw').value===ADMIN_PASS){
+      $id('admin-gate').style.display='none';
+      $id('admin-dash').style.display='block';
+      renderAdmin();
+    } else {
+      $id('admin-err').textContent='Incorrect password.';
+    }
+  },
+  adminLogout(){
+    $id('admin-gate').style.display='block';
+    $id('admin-dash').style.display='none';
+    $id('admin-pw').value='';
+  },
+
+  exportLog(fmt){
+    const log=getLog();
+    if(!log.length){ alert('No log data to export.'); return; }
+    let blob, fname;
+    if(fmt==='json'){
+      blob=new Blob([JSON.stringify(log,null,2)],{type:'application/json'});
+      fname='moafdito_log.json';
+    } else {
+      const hdr='timestamp,question,coverage,missing_concepts,answer\n';
+      const rows=log.map(l=>[l.ts,'"'+l.question.replace(/"/g,'""')+'"',l.coverage,'"'+(l.missing||[]).join('; ')+'"','"'+(l.answer||'').replace(/"/g,'""').substring(0,200)+'"'].join(','));
+      blob=new Blob([hdr+rows.join('\n')],{type:'text/csv'});
+      fname='moafdito_log.csv';
+    }
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob); a.download=fname; a.click();
+  },
+
+  clearLog(){
+    if(!confirm('Delete all Q&A log data? This cannot be undone.')) return;
+    localStorage.removeItem(LOG_KEY);
+    localStorage.removeItem(PROP_KEY);
+    renderAdmin();
+  }
+};
+
+// Boot
+document.addEventListener('DOMContentLoaded', init);
+// Also run immediately in case DOM is already ready (loaded via jQuery.load())
+if(document.readyState!=='loading') init();
+
+})();
+</script>
